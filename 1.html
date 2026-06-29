@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mudaber — Powering Independent Music Worldwide</title>
+    <meta name="description" content="Mudaber is a global music company empowering independent artists with distribution, publishing, artist management, ghost production, and technology." />
+
+    <!-- Bootstrap 5 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <!-- Google Fonts: Space Grotesk (display) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+
+    <style>
+        /* ─── TOKEN SYSTEM ─── */
+        
+         :root {
+            --c-bg: #0a0a0a;
+            --c-surface: #111111;
+            --c-surface2: #181818;
+            --c-border: #222222;
+            --c-accent: #f5e642;
+            /* Mudaber Yellow — signature */
+            --c-accent2: #e0ff4f;
+            --c-text: #f0f0f0;
+            --c-muted: #888888;
+            --c-white: #ffffff;
+            --r: 8px;
+            --r-lg: 16px;
+            --ff-display: 'Space Grotesk', sans-serif;
+            --ff-body: 'Inter', sans-serif;
+        }
+        
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            background: var(--c-bg);
+            color: var(--c-text);
+            font-family: var(--ff-body);
+            font-size: 16px;
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+        }
+        /* ─── TYPOGRAPHY ─── */
+        
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: var(--ff-display);
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+        }
+        
+        .display-hero {
+            font-size: clamp(2.8rem, 7vw, 7rem);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -0.04em;
+        }
+        
+        @media (min-width: 768px) {
+            .display-hero {
+                white-space: nowrap;
+            }
+        }
+        
+        .display-section {
+            font-size: clamp(2rem, 5vw, 4rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+        
+        .eyebrow {
+            font-family: var(--ff-display);
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--c-accent);
+        }
+        
+        .text-muted-custom {
+            color: var(--c-muted);
+        }
+        /* ─── NAVBAR ─── */
+        
+        .navbar-mudaber {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 0;
+            transition: background 0.3s, border-bottom 0.3s;
+        }
+        
+        .navbar-mudaber.scrolled {
+            background: rgba(10, 10, 10, 0.96);
+            border-bottom: 1px solid var(--c-border);
+            backdrop-filter: blur(12px);
+        }
+        
+        .navbar-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.1rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .nav-logo {
+            font-family: var(--ff-display);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--c-white);
+            text-decoration: none;
+            letter-spacing: -0.03em;
+        }
+        
+        .nav-logo span {
+            color: var(--c-accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            font-family: var(--ff-display);
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--c-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--c-white);
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .btn-nav-ghost {
+            font-family: var(--ff-display);
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--c-muted);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .btn-nav-ghost:hover {
+            color: var(--c-white);
+        }
+        
+        .btn-primary-mudaber {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--c-accent);
+            color: #0a0a0a;
+            font-family: var(--ff-display);
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 0.62rem 1.4rem;
+            border-radius: 100px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            white-space: nowrap;
+        }
+        
+        .btn-primary-mudaber:hover {
+            background: var(--c-accent2);
+            color: #0a0a0a;
+            transform: translateY(-1px);
+        }
+        
+        .btn-outline-mudaber {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: transparent;
+            color: var(--c-white);
+            font-family: var(--ff-display);
+            font-size: 0.88rem;
+            font-weight: 600;
+            padding: 0.62rem 1.4rem;
+            border-radius: 100px;
+            text-decoration: none;
+            border: 1.5px solid var(--c-border);
+            cursor: pointer;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        
+        .btn-outline-mudaber:hover {
+            border-color: var(--c-muted);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--c-white);
+        }
+        /* Hamburger */
+        
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--c-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        /* ─── HERO ─── */
+        
+        #hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 8rem 2rem 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 70% at 50% -10%, rgba(245, 230, 66, 0.12) 0%, transparent 60%), radial-gradient(ellipse 60% 50% at 80% 60%, rgba(245, 230, 66, 0.06) 0%, transparent 60%), radial-gradient(ellipse 40% 40% at 10% 80%, rgba(245, 230, 66, 0.04) 0%, transparent 60%), var(--c-bg);
+            z-index: 0;
+        }
+        /* Animated grid lines */
+        
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(245, 230, 66, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(245, 230, 66, 0.03) 1px, transparent 1px);
+            background-size: 80px 80px;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(245, 230, 66, 0.1);
+            border: 1px solid rgba(245, 230, 66, 0.25);
+            border-radius: 100px;
+            padding: 0.3rem 0.9rem;
+            margin-bottom: 2rem;
+            font-family: var(--ff-display);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--c-accent);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+        
+        .hero-tag-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--c-accent);
+            animation: pulse-dot 2s infinite;
+        }
+        
+        @keyframes pulse-dot {
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.5;
+                transform: scale(0.7);
+            }
+        }
+        
+        .hero-title {
+            color: var(--c-white);
+        }
+        
+        .hero-title .accent {
+            color: var(--c-accent);
+        }
+        
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--c-muted);
+            max-width: 540px;
+            margin-top: 1.5rem;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            text-align: center;
+        }
+        
+        .hero-cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--c-border);
+            justify-content: center;
+        }
+        
+        .stat-val {
+            font-family: var(--ff-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--c-white);
+        }
+        
+        .stat-label {
+            font-size: 0.78rem;
+            color: var(--c-muted);
+            margin-top: 0.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+        /* Scrolling logo ticker */
+        
+        .ticker-wrap {
+            overflow: hidden;
+            padding: 1.5rem 0;
+            border-top: 1px solid var(--c-border);
+            border-bottom: 1px solid var(--c-border);
+            background: var(--c-surface);
+        }
+        
+        .ticker-inner {
+            display: flex;
+            gap: 3rem;
+            width: max-content;
+            animation: ticker 25s linear infinite;
+        }
+        
+        .ticker-item {
+            font-family: var(--ff-display);
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--c-muted);
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .ticker-item .dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: var(--c-accent);
+        }
+        
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        /* ─── SECTIONS ─── */
+        
+        section {
+            position: relative;
+        }
+        
+        .section-pad {
+            padding: 6rem 2rem;
+        }
+        
+        .section-pad-lg {
+            padding: 8rem 2rem;
+        }
+        
+        .container-mudaber {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        /* ─── PLATFORM CARDS ─── */
+        
+        .platforms-section {
+            background: var(--c-surface);
+        }
+        
+        .platform-card {
+            background: var(--c-surface2);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-lg);
+            padding: 2.5rem;
+            transition: border-color 0.2s, transform 0.2s;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .platform-card:hover {
+            border-color: rgba(245, 230, 66, 0.35);
+            transform: translateY(-4px);
+        }
+        
+        .platform-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(245, 230, 66, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: var(--c-accent);
+            margin-bottom: 1.5rem;
+        }
+        
+        .platform-card h4 {
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: var(--c-white);
+        }
+        
+        .platform-card p {
+            font-size: 0.88rem;
+            color: var(--c-muted);
+            flex: 1;
+            margin-bottom: 1.5rem;
+        }
+        
+        .platform-link {
+            font-family: var(--ff-display);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--c-accent);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: gap 0.15s;
+        }
+        
+        .platform-link:hover {
+            gap: 0.6rem;
+            color: var(--c-accent);
+        }
+        /* ─── SERVICES (2-col split) ─── */
+        
+        .service-split {
+            display: flex;
+            gap: 5vw;
+            align-items: flex-start;
+        }
+        
+        .service-split .left {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .service-split .right {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .service-item {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--c-border);
+        }
+        
+        .service-item:first-child {
+            padding-top: 0;
+        }
+        
+        .service-item h4 {
+            font-size: 1.05rem;
+            color: var(--c-white);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .service-item h4 .svc-num {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            color: var(--c-accent);
+            font-family: var(--ff-display);
+        }
+        
+        .service-item p {
+            font-size: 0.88rem;
+            color: var(--c-muted);
+            line-height: 1.7;
+        }
+        /* ─── FEATURE HIGHLIGHT ─── */
+        
+        .feature-highlight {
+            background: var(--c-accent);
+            border-radius: var(--r-lg);
+            padding: 4rem 3rem;
+            color: #0a0a0a;
+        }
+        
+        .feature-highlight h2 {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            color: #0a0a0a;
+        }
+        
+        .feature-highlight p {
+            color: rgba(10, 10, 10, 0.7);
+        }
+        
+        .feature-highlight .btn-dark-mudaber {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: #0a0a0a;
+            color: var(--c-accent);
+            font-family: var(--ff-display);
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 0.7rem 1.6rem;
+            border-radius: 100px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .feature-highlight .btn-dark-mudaber:hover {
+            background: #181818;
+            color: var(--c-accent);
+        }
+        
+        .feature-checklist {
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+        
+        .feature-checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.9rem;
+            color: rgba(10, 10, 10, 0.75);
+            margin-bottom: 0.7rem;
+        }
+        
+        .feature-checklist li i {
+            color: #0a0a0a;
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+        /* ─── ARTISTS GRID (scroll strip) ─── */
+        
+        .artists-strip {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .artists-inner {
+            display: flex;
+            gap: 1rem;
+            width: max-content;
+            animation: scroll-artists 35s linear infinite;
+        }
+        
+        .artists-inner:hover {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll-artists {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .artist-card {
+            width: 200px;
+            flex-shrink: 0;
+            border-radius: var(--r);
+            overflow: hidden;
+            position: relative;
+            aspect-ratio: 1;
+            background: var(--c-surface2);
+            border: 1px solid var(--c-border);
+        }
+        
+        .artist-card-bg {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .artist-card-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem 0.9rem 0.8rem;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        }
+        
+        .artist-name {
+            font-family: var(--ff-display);
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--c-white);
+        }
+        
+        .artist-stat {
+            font-size: 0.72rem;
+            color: var(--c-accent);
+            font-weight: 600;
+        }
+        /* ─── PRICING ─── */
+        
+        .pricing-card {
+            background: var(--c-surface2);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-lg);
+            padding: 2.5rem;
+            height: 100%;
+        }
+        
+        .pricing-card.featured {
+            background: var(--c-accent);
+            border-color: var(--c-accent);
+        }
+        
+        .pricing-card.featured * {
+            color: #0a0a0a !important;
+        }
+        
+        .price-amount {
+            font-family: var(--ff-display);
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--c-white);
+        }
+        
+        .price-period {
+            font-size: 0.82rem;
+            color: var(--c-muted);
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-top: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-features li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            font-size: 0.88rem;
+            color: var(--c-muted);
+            margin-bottom: 0.65rem;
+        }
+        
+        .pricing-features li i {
+            color: var(--c-accent);
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .pricing-card.featured .pricing-features li i {
+            color: #0a0a0a;
+        }
+        /* ─── TESTIMONIALS ─── */
+        
+        .testimonial-card {
+            background: var(--c-surface2);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-lg);
+            padding: 2rem;
+        }
+        
+        .testimonial-card p {
+            font-size: 0.95rem;
+            color: var(--c-text);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .author-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(245, 230, 66, 0.15);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--ff-display);
+            font-weight: 700;
+            font-size: 0.85rem;
+            color: var(--c-accent);
+        }
+        
+        .author-name {
+            font-family: var(--ff-display);
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--c-white);
+        }
+        
+        .author-role {
+            font-size: 0.78rem;
+            color: var(--c-muted);
+        }
+        
+        .stars {
+            color: var(--c-accent);
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        /* ─── COMPANY LEGAL BADGE ─── */
+        
+        .company-badge {
+            background: var(--c-surface2);
+            border: 1px solid var(--c-border);
+            border-radius: var(--r-lg);
+            padding: 2rem 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem 3rem;
+        }
+        
+        .badge-item {}
+        
+        .badge-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--c-muted);
+            margin-bottom: 0.25rem;
+        }
+        
+        .badge-value {
+            font-family: var(--ff-display);
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--c-white);
+        }
+        /* ─── NEWSLETTER ─── */
+        
+        .newsletter-section {
+            background: var(--c-surface);
+        }
+        
+        .newsletter-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 440px;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            background: var(--c-surface2);
+            border: 1px solid var(--c-border);
+            border-radius: 100px;
+            padding: 0.7rem 1.2rem;
+            color: var(--c-white);
+            font-family: var(--ff-body);
+            font-size: 0.88rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        
+        .newsletter-form input:focus {
+            border-color: var(--c-accent);
+        }
+        
+        .newsletter-form input::placeholder {
+            color: var(--c-muted);
+        }
+        /* ─── FOOTER ─── */
+        
+        footer {
+            background: var(--c-surface);
+            border-top: 1px solid var(--c-border);
+            padding: 4rem 2rem 2rem;
+        }
+        
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-family: var(--ff-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--c-white);
+            letter-spacing: -0.03em;
+            text-decoration: none;
+        }
+        
+        .footer-logo span {
+            color: var(--c-accent);
+        }
+        
+        .footer-desc {
+            font-size: 0.85rem;
+            color: var(--c-muted);
+            max-width: 280px;
+            margin-top: 0.75rem;
+            line-height: 1.7;
+        }
+        
+        .footer-col-title {
+            font-family: var(--ff-display);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--c-white);
+            margin-bottom: 1.2rem;
+        }
+        
+        .footer-links {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        
+        .footer-links a {
+            font-size: 0.88rem;
+            color: var(--c-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--c-white);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+        
+        .social-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--c-surface2);
+            border: 1px solid var(--c-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--c-muted);
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        
+        .social-btn:hover {
+            background: rgba(245, 230, 66, 0.12);
+            border-color: var(--c-accent);
+            color: var(--c-accent);
+        }
+        
+        .footer-bottom {
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--c-border);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .footer-bottom p {
+            font-size: 0.8rem;
+            color: var(--c-muted);
+            text-align: center;
+        }
+        /* ─── MOBILE MENU ─── */
+        
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 999;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+        }
+        
+        .mobile-menu.open {
+            display: flex;
+        }
+        
+        .mobile-menu a {
+            font-family: var(--ff-display);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--c-white);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .mobile-menu a:hover {
+            color: var(--c-accent);
+        }
+        
+        .mobile-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 2rem;
+            background: none;
+            border: none;
+            color: var(--c-white);
+            font-size: 1.8rem;
+            cursor: pointer;
+        }
+        /* ─── SECTION BG VARIANTS ─── */
+        
+        .bg-surface {
+            background: var(--c-surface);
+        }
+        
+        .bg-default {
+            background: var(--c-bg);
+        }
+        /* ─── DIVIDER LINE ─── */
+        
+        .divider {
+            border: none;
+            border-top: 1px solid var(--c-border);
+            margin: 0;
+        }
+        /* ─── RESPONSIVE ─── */
+        
+        @media (max-width: 991px) {
+            .nav-links,
+            .nav-right {
+                display: none;
+            }
+            .nav-toggle {
+                display: block;
+            }
+            .service-split {
+                flex-direction: column;
+                gap: 0;
+            }
+            .hero-stats {
+                flex-wrap: wrap;
+                gap: 1.5rem 2.5rem;
+            }
+        }
+        
+        @media (max-width: 575px) {
+            .hero-stats {
+                gap: 1rem 1.5rem;
+            }
+            .section-pad {
+                padding: 4rem 1.2rem;
+            }
+            .section-pad-lg {
+                padding: 5rem 1.2rem;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .company-badge {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        /* ─── ANIMATIONS ─── */
+        
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* ─── ACCENT LINE ─── */
+        
+        .accent-line {
+            display: block;
+            width: 40px;
+            height: 3px;
+            background: var(--c-accent);
+            border-radius: 2px;
+            margin-bottom: 1rem;
+        }
+        
+        .accent-line.mx-auto {
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Genre / Tag pills */
+        
+        .tag-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: rgba(245, 230, 66, 0.08);
+            border: 1px solid rgba(245, 230, 66, 0.2);
+            border-radius: 100px;
+            padding: 0.3rem 0.8rem;
+            font-family: var(--ff-display);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--c-accent);
+            letter-spacing: 0.04em;
+        }
+        /* Number big */
+        
+        .number-big {
+            font-family: var(--ff-display);
+            font-size: clamp(3.5rem, 7vw, 6rem);
+            font-weight: 700;
+            color: var(--c-white);
+            line-height: 1;
+            letter-spacing: -0.04em;
+        }
+        /* Streaming platform pill */
+        
+        .platform-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--c-surface2);
+            border: 1px solid var(--c-border);
+            border-radius: 100px;
+            padding: 0.4rem 0.85rem;
+            font-size: 0.78rem;
+            font-weight: 500;
+            color: var(--c-muted);
+        }
+        
+        .platform-pill i {
+            color: var(--c-accent);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+    <nav class="navbar-mudaber" id="navbar">
+        <div class="navbar-inner">
+            <a href="#" class="nav-logo">MUDABER<span>.</span></a>
+
+            <ul class="nav-links">
+                <li><a href="#platforms">Platforms</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#distribution">Distribution</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-right">
+                <a href="https://mudaber.art" class="btn-nav-ghost" target="_blank">Sign In</a>
+                <a href="#contact" class="btn-primary-mudaber">Get Started</a>
+            </div>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu">
+      <i class="bi bi-list"></i>
+    </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-close" id="mobileClose"><i class="bi bi-x"></i></button>
+        <a href="#platforms" class="mobile-nav-link">Platforms</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#distribution" class="mobile-nav-link">Distribution</a>
+        <a href="#pricing" class="mobile-nav-link">Pricing</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="#contact" class="btn-primary-mudaber">Get Started</a>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════ -->
+    <section id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-grid"></div>
+
+        <div class="hero-content">
+            <div class="hero-tag">
+                <span class="hero-tag-dot"></span> Global Music Company · London, UK
+            </div>
+
+            <h1 class="display-hero hero-title">
+                Make Music <span class="accent">Work.</span>
+            </h1>
+
+            <p class="hero-sub">
+                Mudaber empowers independent artists worldwide with distribution, publishing, artist management, and cutting-edge technology — without giving up your rights.
+            </p>
+
+            <div class="hero-cta">
+                <a href="https://mudaber.art" class="btn-primary-mudaber" target="_blank">
+        Start Distributing <i class="bi bi-arrow-right"></i>
+      </a>
+                <a href="#services" class="btn-outline-mudaber">
+        Explore Services
+      </a>
+            </div>
+
+            <div class="hero-stats">
+                <div>
+                    <div class="stat-val">500+</div>
+                    <div class="stat-label">Artists &amp; Producers</div>
+                </div>
+                <div>
+                    <div class="stat-val">40+</div>
+                    <div class="stat-label">Streaming Platforms</div>
+                </div>
+                <div>
+                    <div class="stat-val">150+</div>
+                    <div class="stat-label">Countries Reached</div>
+                </div>
+                <div>
+                    <div class="stat-val">100%</div>
+                    <div class="stat-label">Rights Retained</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     TICKER
+═══════════════════════════════════════════ -->
+    <div class="ticker-wrap">
+        <div class="ticker-inner">
+            <!-- items duplicated for infinite loop -->
+            <div class="ticker-item"><span class="dot"></span>Music Distribution</div>
+            <div class="ticker-item"><span class="dot"></span>Publishing &amp; Rights</div>
+            <div class="ticker-item"><span class="dot"></span>Artist Management</div>
+            <div class="ticker-item"><span class="dot"></span>Ghost Production</div>
+            <div class="ticker-item"><span class="dot"></span>AI Technology</div>
+            <div class="ticker-item"><span class="dot"></span>Royalty Tracking</div>
+            <div class="ticker-item"><span class="dot"></span>Brand Marketing</div>
+            <div class="ticker-item"><span class="dot"></span>Hard Techno · Melodic Techno · Dubstep</div>
+            <div class="ticker-item"><span class="dot"></span>Independent Label</div>
+            <div class="ticker-item"><span class="dot"></span>Music Distribution</div>
+            <div class="ticker-item"><span class="dot"></span>Publishing &amp; Rights</div>
+            <div class="ticker-item"><span class="dot"></span>Artist Management</div>
+            <div class="ticker-item"><span class="dot"></span>Ghost Production</div>
+            <div class="ticker-item"><span class="dot"></span>AI Technology</div>
+            <div class="ticker-item"><span class="dot"></span>Royalty Tracking</div>
+            <div class="ticker-item"><span class="dot"></span>Brand Marketing</div>
+            <div class="ticker-item"><span class="dot"></span>Hard Techno · Melodic Techno · Dubstep</div>
+            <div class="ticker-item"><span class="dot"></span>Independent Label</div>
+        </div>
+    </div>
+
+
+    <!-- ═══════════════════════════════════════════
+     PLATFORMS
+═══════════════════════════════════════════ -->
+    <section id="platforms" class="section-pad-lg platforms-section">
+        <div class="container-mudaber">
+            <div class="row g-0 mb-5">
+                <div class="col-12 text-center">
+                    <div class="eyebrow mb-2">Part of Mudaber Music Group</div>
+                    <div class="accent-line" style="margin:0 auto 1rem;"></div>
+                    <h2 class="display-section text-white">Our Platforms.</h2>
+                </div>
+            </div>
+
+            <div class="row g-3 fade-up justify-content-center">
+                <!-- mudaber.art -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="platform-card">
+                        <div class="platform-icon"><i class="bi bi-music-note-beamed"></i></div>
+                        <h4>Mudaber Art</h4>
+                        <p>Music distribution, publishing, and rights management with artist dashboards, real-time analytics, and royalty tracking.</p>
+                        <a href="https://mudaber.art" target="_blank" class="platform-link">Visit →</a>
+                    </div>
+                </div>
+
+                <!-- mudaberghost.com -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="platform-card">
+                        <div class="platform-icon"><i class="bi bi-headphones"></i></div>
+                        <h4>Mudaber Ghost</h4>
+                        <p>Professional ghost production marketplace — connect with top producers and get custom-made music with full usage rights.</p>
+                        <a href="https://mudaberghost.com" target="_blank" class="platform-link">Visit →</a>
+                    </div>
+                </div>
+
+                <!-- mudaber.tech -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="platform-card">
+                        <div class="platform-icon"><i class="bi bi-cpu"></i></div>
+                        <h4>Mudaber Tech</h4>
+                        <p>Technology arm: AI solutions, web development, accounting systems, website builder, and digital marketing innovation.</p>
+                        <a href="https://mudaber.tech" target="_blank" class="platform-link">Visit →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ═══════════════════════════════════════════
+     SERVICES
+═══════════════════════════════════════════ -->
+    <section id="services" class="section-pad-lg bg-default">
+        <div class="container-mudaber">
+            <div class="row g-5 align-items-start">
+                <!-- Left text -->
+                <div class="col-lg-4 fade-up">
+                    <div class="eyebrow mb-2">What We Do</div>
+                    <div class="accent-line"></div>
+                    <h2 class="display-section text-white mb-4">
+                        Control your career without compromise.
+                    </h2>
+                    <p class="text-muted-custom" style="font-size:.92rem;line-height:1.8;">
+                        We built Mudaber to give independent artists the same power as major labels — without the restrictive contracts, opaque royalties, or loss of creative ownership.
+                    </p>
+                    <a href="#contact" class="btn-primary-mudaber mt-4 d-inline-flex">
+          Work With Us <i class="bi bi-arrow-right"></i>
+        </a>
+                </div>
+
+                <!-- Right services list -->
+                <div class="col-lg-8 fade-up">
+                    <div class="row g-0">
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <h4><span class="svc-num">01</span> Music Distribution</h4>
+                                <p>Release on Spotify, Apple Music, YouTube Music, Amazon, Deezer, TikTok, and 40+ platforms. Fast delivery, real-time analytics, 100% royalties.</p>
+                            </div>
+                            <div class="service-item">
+                                <h4><span class="svc-num">02</span> Publishing &amp; Rights</h4>
+                                <p>Copyright registration, royalty tracking, and media licensing. Your music stays yours — we protect and monetize your intellectual property.</p>
+                            </div>
+                            <div class="service-item">
+                                <h4><span class="svc-num">03</span> Artist Management</h4>
+                                <p>Full career support from branding and marketing to commercial licensing and campaign planning. Over 500 artists trust Mudaber.</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6" style="padding-left: 1.5rem;">
+                            <div class="service-item" style="padding-top:0;">
+                                <h4><span class="svc-num">04</span> Ghost Production</h4>
+                                <p>Access a network of world-class producers via Mudaber Ghost. Commission original tracks and receive full usage rights for commercial releases.</p>
+                            </div>
+                            <div class="service-item">
+                                <h4><span class="svc-num">05</span> AI &amp; Technology</h4>
+                                <p>Proprietary platforms for release management, analytics, royalties, and contracts — all in one dashboard powered by AI.</p>
+                            </div>
+                            <div class="service-item">
+                                <h4><span class="svc-num">06</span> Digital Marketing</h4>
+                                <p>Content strategy, campaign management, social media, and data-driven promotion to turn listeners into a loyal fanbase.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ═══════════════════════════════════════════
+     DISTRIBUTION HIGHLIGHT (Yellow section)
+═══════════════════════════════════════════ -->
+    <section id="distribution" class="section-pad bg-default">
+        <div class="container-mudaber">
+            <div class="feature-highlight fade-up">
+                <div class="row g-4 align-items-center">
+                    <div class="col-lg-6">
+                        <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:1rem;color:rgba(10,10,10,0.55);">
+                            Self-Service Distribution
+                        </div>
+                        <h2>Release everywhere. Keep everything.</h2>
+                        <p style="margin-top:1rem;font-size:.95rem;line-height:1.75;">
+                            Every six seconds an artist distributes with Mudaber. With the industry's fastest time-to-release and plans starting from free, it's the easiest choice for independent artists globally.
+                        </p>
+                        <ul class="feature-checklist">
+                            <li><i class="bi bi-check-lg"></i> Release on all major platforms in as fast as 24 hours</li>
+                            <li><i class="bi bi-check-lg"></i> Keep 100% of your royalties, always</li>
+                            <li><i class="bi bi-check-lg"></i> Real-time analytics and earnings dashboard</li>
+                            <li><i class="bi bi-check-lg"></i> AI mastering, lyrics verification, promo tools</li>
+                            <li><i class="bi bi-check-lg"></i> No restrictive contracts — stay fully independent</li>
+                        </ul>
+                        <a href="https://mudaber.art" target="_blank" class="btn-dark-mudaber mt-1">
+            Start Distributing <i class="bi bi-arrow-right"></i>
+          </a>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="row g-2">
+                            <div class="col-6">
+                                <div style="background:rgba(10,10,10,0.12);border-radius:12px;padding:1.5rem;">
+                                    <div style="font-size:2.5rem;font-weight:700;font-family:var(--ff-display);color:#0a0a0a;">40+</div>
+                                    <div style="font-size:.8rem;color:rgba(10,10,10,0.65);margin-top:.25rem;">Streaming Platforms</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div style="background:rgba(10,10,10,0.12);border-radius:12px;padding:1.5rem;">
+                                    <div style="font-size:2.5rem;font-weight:700;font-family:var(--ff-display);color:#0a0a0a;">500+</div>
+                                    <div style="font-size:.8rem;color:rgba(10,10,10,0.65);margin-top:.25rem;">Active Artists</div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div style="background:rgba(10,10,10,0.12);border-radius:12px;padding:1.5rem;">
+                                    <div style="font-size:.8rem;color:rgba(10,10,10,0.65);margin-bottom:.75rem;font-weight:600;">Distributes To</div>
+                                    <div style="display:flex;flex-wrap:wrap;gap:.4rem;">
+                                        <span style="background:rgba(10,10,10,0.15);border-radius:100px;padding:.25rem .7rem;font-size:.72rem;font-weight:600;color:rgba(10,10,10,0.8);">Spotify</span>
+                                        <span style="background:rgba(10,10,10,0.15);border-radius:100px;padding:.25rem .7rem;font-size:.72rem;font-weight:600;color:rgba(10,10,10,0.8);">Apple Music</span>
+                                        <span style="background:rgba(10,10,10,0.15);border-radius:100px;padding:.25rem .7rem;font-size:.72rem;font-weight:600;color:rgba(10,10,10,0.8);">YouTube Music</span>
+                                        <span style="background:rgba(10,10,10,0.15);border-radius:100px;padding:.25rem .7rem;font-size:.72rem;font-weight:600;color:rgba(10,10,10,0.8);">Amazon Music</span>
+                                        <span style="background:rgba(10,10,10,0.15);border-radius:100px;padding:.25rem .7rem;font-size:.72rem;font-weight:600;color:rgba(10,10,10,0.8);">TikTok</span>
+                                        <span style="background:rgba(10,10,10,0.15);border-radius:100px;padding:.25rem .7rem;font-size:.72rem;font-weight:600;color:rgba(10,10,10,0.8);">Deezer</span>
+                                        <span style="background:rgba(10,10,10,0.15);border-radius:100px;padding:.25rem .7rem;font-size:.72rem;font-weight:600;color:rgba(10,10,10,0.8);">SoundCloud</span>
+                                        <span style="background:rgba(10,10,10,0.15);border-radius:100px;padding:.25rem .7rem;font-size:.72rem;font-weight:600;color:rgba(10,10,10,0.8);">+ 33 more</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     ARTISTS STRIP
+═══════════════════════════════════════════ -->
+    <section class="section-pad bg-surface">
+        <div class="container-mudaber mb-4 text-center">
+            <div class="eyebrow mb-2">Our Roster</div>
+            <div class="accent-line" style="margin:0 auto 1rem;"></div>
+            <h2 class="display-section text-white">Artists We Work With.</h2>
+            <p class="text-muted-custom mt-3 mx-auto" style="max-width:500px;font-size:.92rem;line-height:1.75;">
+                From underground electronic to melodic techno — we support artists across every genre on their journey to global audiences.
+            </p>
+        </div>
+
+        <!-- Genre pills -->
+        <div class="container-mudaber mb-4 fade-up">
+            <div style="display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;">
+                <span class="tag-pill">Hard Techno</span>
+                <span class="tag-pill">Melodic Techno</span>
+                <span class="tag-pill">Dubstep</span>
+                <span class="tag-pill">Trap</span>
+                <span class="tag-pill">Hardcore</span>
+                <span class="tag-pill">Hardstyle</span>
+                <span class="tag-pill">Industrial Techno</span>
+                <span class="tag-pill">Rawstyle</span>
+                <span class="tag-pill">Electronic Underground</span>
+                <span class="tag-pill">JAMAX</span>
+            </div>
+        </div>
+
+        <!-- Scrolling artist cards (generated with gradient placeholders) -->
+        <div class="artists-strip mt-2" style="padding:0 2rem;">
+            <div class="artists-inner" id="artistsStrip">
+                <!-- Artist cards with gradient bg -->
+                <div class="artist-card" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Jamal Belal</div>
+                        <div class="artist-stat">JAMAX Creator</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#0d1117,#161b22);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Kakarottomax</div>
+                        <div class="artist-stat">JAMAX Producer</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#1a0a2e,#2d1b69);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Underground Artist</div>
+                        <div class="artist-stat">Hard Techno</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#0a1628,#1e3a5f);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">DJ Producer</div>
+                        <div class="artist-stat">Melodic Techno</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#1a1a0a,#3d3d00);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Bass Artist</div>
+                        <div class="artist-stat">Dubstep</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#0a1a0a,#003d00);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Sound Engineer</div>
+                        <div class="artist-stat">Industrial</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#1a0a0a,#3d0000);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Trap Producer</div>
+                        <div class="artist-stat">Trap / Hip-Hop</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#0d0a1a,#1a1040);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Rawstyle Artist</div>
+                        <div class="artist-stat">Hardstyle</div>
+                    </div>
+                </div>
+                <!-- Duplicate for infinite loop -->
+                <div class="artist-card" style="background:linear-gradient(135deg,#1a1a2e,#16213e);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Jamal Belal</div>
+                        <div class="artist-stat">JAMAX Creator</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#0d1117,#161b22);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Kakarottomax</div>
+                        <div class="artist-stat">JAMAX Producer</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#1a0a2e,#2d1b69);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Underground Artist</div>
+                        <div class="artist-stat">Hard Techno</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#0a1628,#1e3a5f);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">DJ Producer</div>
+                        <div class="artist-stat">Melodic Techno</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#1a1a0a,#3d3d00);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Bass Artist</div>
+                        <div class="artist-stat">Dubstep</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#0a1a0a,#003d00);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Sound Engineer</div>
+                        <div class="artist-stat">Industrial</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#1a0a0a,#3d0000);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Trap Producer</div>
+                        <div class="artist-stat">Trap / Hip-Hop</div>
+                    </div>
+                </div>
+                <div class="artist-card" style="background:linear-gradient(135deg,#0d0a1a,#1a1040);">
+                    <div class="artist-card-overlay">
+                        <div class="artist-name">Rawstyle Artist</div>
+                        <div class="artist-stat">Hardstyle</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     PRICING
+═══════════════════════════════════════════ -->
+    <section id="pricing" class="section-pad-lg bg-default">
+        <div class="container-mudaber">
+            <div class="text-center mb-5 fade-up">
+                <div class="eyebrow mb-2">Plans &amp; Pricing</div>
+                <div class="accent-line mx-auto"></div>
+                <h2 class="display-section text-white mt-2">Start Free.<br/>Scale Globally.</h2>
+                <p class="text-muted-custom mt-3 mx-auto" style="max-width:460px;font-size:.92rem;">
+                    Plans designed for every stage of your career — from debut releases to established label operations.
+                </p>
+            </div>
+
+            <div class="row g-3 fade-up">
+                <!-- Free -->
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="eyebrow mb-1">Artist</div>
+                        <div class="price-amount">Free</div>
+                        <div class="price-period mt-1 mb-4">Forever free plan</div>
+                        <ul class="pricing-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Unlimited releases</li>
+                            <li><i class="bi bi-check-circle-fill"></i> All major platforms</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Keep 100% royalties</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Basic analytics</li>
+                            <li><i class="bi bi-check-circle-fill"></i> 1 artist profile</li>
+                        </ul>
+                        <a href="https://mudaber.art" target="_blank" class="btn-outline-mudaber w-100 justify-content-center">Get Started</a>
+                    </div>
+                </div>
+
+                <!-- Pro (featured) -->
+                <div class="col-md-4">
+                    <div class="pricing-card featured">
+                        <div style="font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.25rem;color:rgba(10,10,10,0.55);">
+                            Most Popular
+                        </div>
+                        <div class="eyebrow mb-1" style="color:#0a0a0a;">Artist Pro</div>
+                        <div class="price-amount" style="color:#0a0a0a;">$9.99</div>
+                        <div style="font-size:.82rem;color:rgba(10,10,10,0.6);margin-top:.25rem;margin-bottom:1.5rem;">/ month</div>
+                        <ul class="pricing-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Everything in Free</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Release ASAP (24h delivery)</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Advanced analytics &amp; insights</li>
+                            <li><i class="bi bi-check-circle-fill"></i> AI mastering tools</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Royalty advances</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Priority support</li>
+                        </ul>
+                        <a href="https://mudaber.art" target="_blank" class="btn-dark-mudaber w-100 justify-content-center d-flex">Get Pro</a>
+                    </div>
+                </div>
+
+                <!-- Label -->
+                <div class="col-md-4">
+                    <div class="pricing-card">
+                        <div class="eyebrow mb-1">Label</div>
+                        <div class="price-amount">$24.99</div>
+                        <div class="price-period mt-1 mb-4">/ month</div>
+                        <ul class="pricing-features">
+                            <li><i class="bi bi-check-circle-fill"></i> Everything in Pro</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Multiple artist profiles</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Custom label branding</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Bulk release management</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Publishing rights tools</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Dedicated account manager</li>
+                        </ul>
+                        <a href="https://mudaber.art" target="_blank" class="btn-outline-mudaber w-100 justify-content-center">Get Label</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ═══════════════════════════════════════════
+     ABOUT / COMPANY LEGAL
+═══════════════════════════════════════════ -->
+    <section id="about" class="section-pad-lg bg-surface">
+        <div class="container-mudaber">
+            <div class="row g-5 align-items-start">
+                <div class="col-lg-5 fade-up">
+                    <div class="eyebrow mb-2">About Mudaber</div>
+                    <div class="accent-line"></div>
+                    <h2 class="display-section text-white mt-2 mb-4">
+                        Powering the future of independent music.
+                    </h2>
+                    <p class="text-muted-custom" style="font-size:.92rem;line-height:1.8;">
+                        Mudaber is a dynamic music company founded to amplify the voices of musicians and provide fertile ground for their creativity. With over 500 artists, sound engineers, and DJs, Mudaber creates a powerful symphony of creativity that resonates well beyond
+                        traditional boundaries.
+                    </p>
+                    <p class="text-muted-custom mt-3" style="font-size:.92rem;line-height:1.8;">
+                        We stand as a bridge between independent record labels and talented music artists worldwide — supporting everything from global distribution to the birth of new genres like <strong style="color:var(--c-accent)">JAMAX</strong> (hard
+                        techno mixed with dubstep and hardstyle).
+                    </p>
+
+                    <div class="row g-3 mt-3">
+                        <div class="col-6">
+                            <div style="background:var(--c-surface2);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:1.5rem 1.25rem;">
+                                <div class="number-big" style="font-size:clamp(2.2rem,4vw,3.5rem);">2015</div>
+                                <div style="font-size:.75rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;">Founded</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div style="background:var(--c-surface2);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:1.5rem 1.25rem;">
+                                <div class="number-big" style="font-size:clamp(2.2rem,4vw,3.5rem);">UK</div>
+                                <div style="font-size:.75rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.1em;margin-top:.35rem;">Registered</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7 fade-up">
+                    <!-- Legal badge -->
+                    <div class="eyebrow mb-3">Legal &amp; Company Info</div>
+                    <div class="company-badge mb-4">
+                        <div class="badge-item">
+                            <div class="badge-label">Company Type</div>
+                            <div class="badge-value">Private Limited Company (Ltd)</div>
+                        </div>
+                        <div class="badge-item">
+                            <div class="badge-label">Registration Number</div>
+                            <div class="badge-value">16915064</div>
+                        </div>
+                        <div class="badge-item">
+                            <div class="badge-label">Registered At</div>
+                            <div class="badge-value">Companies House, UK</div>
+                        </div>
+                        <div class="badge-item">
+                            <div class="badge-label">Director</div>
+                            <div class="badge-value">Jamal Belal</div>
+                        </div>
+                        <div class="badge-item">
+                            <div class="badge-label">Registered Address</div>
+                            <div class="badge-value">112 Loughborough House, 2 Honour Gardens, London RM8 2GJ</div>
+                        </div>
+                    </div>
+
+                    <!-- Core values -->
+                    <div class="eyebrow mb-3">Core Values</div>
+                    <div class="row g-2">
+                        <div class="col-6">
+                            <div style="background:var(--c-surface2);border:1px solid var(--c-border);border-radius:var(--r);padding:1.2rem;">
+                                <i class="bi bi-person-check" style="color:var(--c-accent);font-size:1.2rem;"></i>
+                                <div style="font-family:var(--ff-display);font-size:.9rem;font-weight:600;color:var(--c-white);margin-top:.5rem;">Artist Empowerment</div>
+                                <div style="font-size:.8rem;color:var(--c-muted);margin-top:.25rem;">Putting independent artists first</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div style="background:var(--c-surface2);border:1px solid var(--c-border);border-radius:var(--r);padding:1.2rem;">
+                                <i class="bi bi-shield-check" style="color:var(--c-accent);font-size:1.2rem;"></i>
+                                <div style="font-family:var(--ff-display);font-size:.9rem;font-weight:600;color:var(--c-white);margin-top:.5rem;">IP Security</div>
+                                <div style="font-size:.8rem;color:var(--c-muted);margin-top:.25rem;">Protecting your rights</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div style="background:var(--c-surface2);border:1px solid var(--c-border);border-radius:var(--r);padding:1.2rem;">
+                                <i class="bi bi-cpu" style="color:var(--c-accent);font-size:1.2rem;"></i>
+                                <div style="font-family:var(--ff-display);font-size:.9rem;font-weight:600;color:var(--c-white);margin-top:.5rem;">Innovation</div>
+                                <div style="font-size:.8rem;color:var(--c-muted);margin-top:.25rem;">Evolving technology</div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div style="background:var(--c-surface2);border:1px solid var(--c-border);border-radius:var(--r);padding:1.2rem;">
+                                <i class="bi bi-globe" style="color:var(--c-accent);font-size:1.2rem;"></i>
+                                <div style="font-family:var(--ff-display);font-size:.9rem;font-weight:600;color:var(--c-white);margin-top:.5rem;">Global Reach</div>
+                                <div style="font-size:.8rem;color:var(--c-muted);margin-top:.25rem;">Connecting artists worldwide</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider" />
+
+
+    <!-- ═══════════════════════════════════════════
+     TESTIMONIALS
+═══════════════════════════════════════════ -->
+    <section class="section-pad bg-default">
+        <div class="container-mudaber">
+            <div class="row mb-5 fade-up">
+                <div class="col-12 text-center">
+                    <div class="eyebrow mb-2">What Artists Say</div>
+                    <div class="accent-line" style="margin:0 auto 1rem;"></div>
+                    <h2 class="display-section text-white mt-2">Trusted by artists worldwide.</h2>
+                </div>
+            </div>
+
+            <div class="row g-3 fade-up">
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Mudaber Technology transformed our music distribution system with their innovative AI solutions. The platform integration was seamless and the results exceeded our expectations."</p>
+                        <div class="author">
+                            <div class="author-avatar">AR</div>
+                            <div>
+                                <div class="author-name">Amanda Rodriguez</div>
+                                <div class="author-role">Music Producer, ElectroBeats Studio</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"The web development team at Mudaber created a stunning artist dashboard that simplified our release management. Their attention to detail and technical expertise is outstanding."</p>
+                        <div class="author">
+                            <div class="author-avatar">DC</div>
+                            <div>
+                                <div class="author-name">David Chen</div>
+                                <div class="author-role">Artist Manager, Urban Records</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p>"Working with Mudaber on our cybersecurity implementation was a game-changer. Their blockchain solutions have protected our intellectual property like never before."</p>
+                        <div class="author">
+                            <div class="author-avatar">SJ</div>
+                            <div>
+                                <div class="author-name">Sarah Johnson</div>
+                                <div class="author-role">CEO, Digital Music Collective</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     NEWSLETTER / CTA
+═══════════════════════════════════════════ -->
+    <section class="section-pad newsletter-section">
+        <div class="container-mudaber">
+            <div class="row align-items-center g-4 fade-up">
+                <div class="col-lg-6 text-center text-lg-start">
+                    <div class="eyebrow mb-2">Stay in Tune</div>
+                    <div class="accent-line" style="margin:0 auto 1rem;"></div>
+                    <h2 class="display-section text-white mt-2">Join the<br/>Underground.</h2>
+                    <p class="text-muted-custom mt-3" style="font-size:.92rem;line-height:1.8;">
+                        Get exclusive drops, artist news, insider tips on music distribution, and updates on new releases straight to your inbox.
+                    </p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="newsletter-form" id="newsletterForm">
+                        <input type="email" id="emailInput" placeholder="Enter your email address" />
+                        <button class="btn-primary-mudaber" onclick="handleNewsletter()">
+            Subscribe <i class="bi bi-arrow-right"></i>
+          </button>
+                    </div>
+                    <p id="newsletterMsg" style="display:none;margin-top:.75rem;font-size:.82rem;color:var(--c-accent);">
+                        ✓ You're in! Welcome to the underground.
+                    </p>
+                    <p class="text-muted-custom mt-2" style="font-size:.78rem;">
+                        No spam. Unsubscribe anytime. By subscribing you agree to our Privacy Policy.
+                    </p>
+
+                    <!-- Social links -->
+                    <div class="footer-social mt-4">
+                        <a href="https://www.instagram.com/mudabermusic/" target="_blank" class="social-btn" title="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="https://www.youtube.com/channel/UCuIaE4S8zu4opdY5oMhZjyg" target="_blank" class="social-btn" title="YouTube">
+                            <i class="bi bi-youtube"></i>
+                        </a>
+                        <a href="https://www.facebook.com/mudabermusic/" target="_blank" class="social-btn" title="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="https://soundcloud.com/mudaber-music" target="_blank" class="social-btn" title="SoundCloud">
+                            <i class="bi bi-soundwave"></i>
+                        </a>
+                        <a href="https://open.spotify.com/user/31fqwpwvwhr5u3szb5yh2yffxwbi" target="_blank" class="social-btn" title="Spotify">
+                            <i class="bi bi-spotify"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/company/mudaber/" target="_blank" class="social-btn" title="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     CONTACT
+═══════════════════════════════════════════ -->
+    <section id="contact" class="section-pad bg-default">
+        <div class="container-mudaber">
+            <div class="row g-5 align-items-start fade-up">
+                <div class="col-lg-5">
+                    <div class="eyebrow mb-2">Get In Touch</div>
+                    <div class="accent-line"></div>
+                    <h2 class="display-section text-white mt-2 mb-4">
+                        Ready to transform your music career?
+                    </h2>
+                    <p class="text-muted-custom" style="font-size:.92rem;line-height:1.8;">
+                        Whether you're an independent artist looking to distribute your first single, or an established label seeking technology solutions — Mudaber is here for you.
+                    </p>
+
+                    <div style="margin-top:2rem;display:flex;flex-direction:column;gap:1.2rem;">
+                        <div style="display:flex;align-items:center;gap:0.85rem;">
+                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(245,230,66,0.1);display:flex;align-items:center;justify-content:center;color:var(--c-accent);font-size:1rem;flex-shrink:0;">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:.78rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;">Address</div>
+                                <div style="font-size:.9rem;color:var(--c-white);">112 Loughborough House, 2 Honour Gardens, London RM8 2GJ</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.85rem;">
+                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(245,230,66,0.1);display:flex;align-items:center;justify-content:center;color:var(--c-accent);font-size:1rem;flex-shrink:0;">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:.78rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;">Email</div>
+                                <div style="font-size:.9rem;color:var(--c-white);">info@mudaber.com</div>
+                            </div>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.85rem;">
+                            <div style="width:40px;height:40px;border-radius:10px;background:rgba(245,230,66,0.1);display:flex;align-items:center;justify-content:center;color:var(--c-accent);font-size:1rem;flex-shrink:0;">
+                                <i class="bi bi-clock"></i>
+                            </div>
+                            <div>
+                                <div style="font-size:.78rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;">Hours</div>
+                                <div style="font-size:.9rem;color:var(--c-white);">Monday–Friday: 10AM – 6PM (GMT)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div style="background:var(--c-surface2);border:1px solid var(--c-border);border-radius:var(--r-lg);padding:2.5rem;">
+                        <h4 style="font-family:var(--ff-display);font-size:1.1rem;color:var(--c-white);margin-bottom:1.5rem;">Send us a message</h4>
+
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label style="font-size:.78rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.4rem;">First Name</label>
+                                <input type="text" placeholder="Jamal" style="width:100%;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r);padding:.7rem 1rem;color:var(--c-white);font-family:var(--ff-body);font-size:.88rem;outline:none;" />
+                            </div>
+                            <div class="col-sm-6">
+                                <label style="font-size:.78rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.4rem;">Last Name</label>
+                                <input type="text" placeholder="Belal" style="width:100%;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r);padding:.7rem 1rem;color:var(--c-white);font-family:var(--ff-body);font-size:.88rem;outline:none;" />
+                            </div>
+                            <div class="col-12">
+                                <label style="font-size:.78rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.4rem;">Email</label>
+                                <input type="email" placeholder="you@example.com" style="width:100%;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r);padding:.7rem 1rem;color:var(--c-white);font-family:var(--ff-body);font-size:.88rem;outline:none;"
+                                />
+                            </div>
+                            <div class="col-12">
+                                <label style="font-size:.78rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.4rem;">I'm interested in</label>
+                                <select style="width:100%;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r);padding:.7rem 1rem;color:var(--c-muted);font-family:var(--ff-body);font-size:.88rem;outline:none;">
+                <option>Music Distribution</option>
+                <option>Publishing &amp; Rights</option>
+                <option>Artist Management</option>
+                <option>Ghost Production</option>
+                <option>Technology Solutions</option>
+                <option>Digital Marketing</option>
+                <option>Other</option>
+              </select>
+                            </div>
+                            <div class="col-12">
+                                <label style="font-size:.78rem;color:var(--c-muted);text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:.4rem;">Message</label>
+                                <textarea rows="4" placeholder="Tell us about your project..." style="width:100%;background:var(--c-surface);border:1px solid var(--c-border);border-radius:var(--r);padding:.7rem 1rem;color:var(--c-white);font-family:var(--ff-body);font-size:.88rem;outline:none;resize:vertical;"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button class="btn-primary-mudaber w-100 justify-content-center d-flex" onclick="handleContact(this)" style="padding:.85rem;">
+                Send Message <i class="bi bi-arrow-right"></i>
+              </button>
+                                <p id="contactMsg" style="display:none;margin-top:.75rem;font-size:.82rem;color:var(--c-accent);text-align:center;">
+                                    ✓ Message sent! We'll get back to you within 24 hours.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ═══════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════ -->
+    <footer>
+        <div class="footer-inner">
+            <div class="row g-4">
+                <!-- Brand -->
+                <div class="col-lg-4 col-md-6">
+                    <a href="#" class="footer-logo">MUDABER<span>.</span></a>
+                    <p class="footer-desc">
+                        A global music company empowering independent artists worldwide through distribution, publishing, management, and innovative technology. Registered in England &amp; Wales · No. 16915064.
+                    </p>
+                    <div class="footer-social mt-3">
+                        <a href="https://www.instagram.com/mudabermusic/" target="_blank" class="social-btn"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCuIaE4S8zu4opdY5oMhZjyg" target="_blank" class="social-btn"><i class="bi bi-youtube"></i></a>
+                        <a href="https://www.facebook.com/mudabermusic/" target="_blank" class="social-btn"><i class="bi bi-facebook"></i></a>
+                        <a href="https://soundcloud.com/mudaber-music" target="_blank" class="social-btn"><i class="bi bi-soundwave"></i></a>
+                        <a href="https://open.spotify.com/user/31fqwpwvwhr5u3szb5yh2yffxwbi" target="_blank" class="social-btn"><i class="bi bi-spotify"></i></a>
+                        <a href="https://www.linkedin.com/company/mudaber/" target="_blank" class="social-btn"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Platforms -->
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="footer-col-title">Platforms</div>
+                    <ul class="footer-links">
+                        <li><a href="https://mudaber.com" target="_blank">Mudaber.com</a></li>
+                        <li><a href="https://mudaber.art" target="_blank">Mudaber Art</a></li>
+                        <li><a href="https://mudaberghost.com" target="_blank">Mudaber Ghost</a></li>
+                        <li><a href="https://mudaber.tech" target="_blank">Mudaber Tech</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="footer-col-title">Services</div>
+                    <ul class="footer-links">
+                        <li><a href="#distribution">Distribution</a></li>
+                        <li><a href="#services">Publishing</a></li>
+                        <li><a href="#services">Management</a></li>
+                        <li><a href="#services">Ghost Production</a></li>
+                        <li><a href="#services">AI &amp; Tech</a></li>
+                        <li><a href="#services">Marketing</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="footer-col-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="https://mudaber.tech/careers.php" target="_blank">Careers</a></li>
+                        <li><a href="https://mudaber.tech/blog.php" target="_blank">Blog</a></li>
+                    </ul>
+                </div>
+
+                <!-- Legal -->
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="footer-col-title">Legal</div>
+                    <ul class="footer-links">
+                        <li><a href="https://mudaber.tech/privacy.php" target="_blank">Privacy Policy</a></li>
+                        <li><a href="https://mudaber.tech/terms.php" target="_blank">Terms of Service</a></li>
+                        <li><a href="#contact">DMCA / Copyright</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 Mudaber Ltd. All Rights Reserved. Registered in England &amp; Wales · No. 16915064</p>
+                <p>112 Loughborough House, 2 Honour Gardens, London RM8 2GJ</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        /* ── Navbar scroll effect ── */
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            navbar.classList.toggle('scrolled', window.scrollY > 30);
+        });
+
+        /* ── Mobile menu ── */
+        const navToggle = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileClose = document.getElementById('mobileClose');
+
+        navToggle.addEventListener('click', () => mobileMenu.classList.add('open'));
+        mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        });
+
+        /* ── Scroll reveal ── */
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                    observer.unobserve(e.target);
+                }
+            });
+        }, {
+            threshold: 0.12
+        });
+
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+        /* ── Newsletter ── */
+        function handleNewsletter() {
+            const email = document.getElementById('emailInput').value;
+            if (!email || !email.includes('@')) {
+                document.getElementById('emailInput').style.borderColor = '#ff4444';
+                return;
+            }
+            document.getElementById('emailInput').style.borderColor = '';
+            document.getElementById('newsletterMsg').style.display = 'block';
+            document.getElementById('emailInput').value = '';
+        }
+
+        /* ── Contact form ── */
+        function handleContact(btn) {
+            btn.textContent = 'Sending...';
+            setTimeout(() => {
+                btn.innerHTML = 'Send Message <i class="bi bi-arrow-right"></i>';
+                document.getElementById('contactMsg').style.display = 'block';
+            }, 1200);
+        }
+
+        /* ── Smooth scroll for all hash links ── */
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        /* ── Input focus accent border ── */
+        document.querySelectorAll('input, textarea, select').forEach(el => {
+            el.addEventListener('focus', () => el.style.borderColor = 'var(--c-accent)');
+            el.addEventListener('blur', () => el.style.borderColor = 'var(--c-border)');
+        });
+    </script>
+
+</body>
+
+</html>
