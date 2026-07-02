@@ -80,7 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         // Add hover effect to interactive elements
-        const interactiveElements = document.querySelectorAll('a, button, .eco-card, .workflow-item, .faq-question');
+        const interactiveElements = document.querySelectorAll('a, button, .eco-card, .workflow-item, .faq-question, .news-card');
         
         interactiveElements.forEach(el => {
             el.addEventListener('mouseenter', () => {
@@ -130,44 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 answer.style.maxHeight = null;
             }
         });
-    });
-});
-
-
-// --- WORLD-CLASS UPGRADES JS ---
-
-// Preloader Logic
-window.addEventListener('load', () => {
-    const preloader = document.getElementById('preloader');
-    const progressBar = document.querySelector('.loader-progress');
-    
-    if(preloader && progressBar) {
-        let progress = 0;
-        const interval = setInterval(() => {
-            progress += Math.random() * 30;
-            if (progress > 100) progress = 100;
-            progressBar.style.width = `${progress}%`;
-            
-            if (progress === 100) {
-                clearInterval(interval);
-                setTimeout(() => {
-                    preloader.classList.add('hidden');
-                    setTimeout(() => preloader.remove(), 600); // cleanup DOM
-                }, 400);
-            }
-        }, 150);
-    }
-});
-
-// Cursor Hover Effects Enhancement
-document.querySelectorAll('a, button, .news-card').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-        if(cursor) cursor.classList.add('hovered');
-        if(cursorDot) cursorDot.classList.add('hovered');
-    });
-    el.addEventListener('mouseleave', () => {
-        if(cursor) cursor.classList.remove('hovered');
-        if(cursorDot) cursorDot.classList.remove('hovered');
     });
 });
 
@@ -323,3 +285,42 @@ if(audio && playBtn) {
         currentTimeEl.textContent = '0:00';
     });
 }
+
+// ==========================================
+// PRELOADER & SCROLL PROGRESS (GLOBAL)
+// ==========================================
+
+window.addEventListener('load', () => {
+    // Preloader Logic
+    const preloader = document.getElementById('preloader');
+    const bar = document.getElementById('preloader-bar');
+    if (preloader && bar) {
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.random() * 30;
+            if (progress > 100) progress = 100;
+            bar.style.width = progress + '%';
+            if (progress === 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    preloader.style.visibility = 'hidden';
+                    setTimeout(() => preloader.remove(), 800);
+                }, 400);
+            }
+        }, 150);
+    }
+});
+
+// Scroll Progress Bar
+(function() {
+    const bar = document.createElement('div');
+    bar.id = 'scroll-progress';
+    bar.style.cssText = 'position:fixed;top:0;left:0;height:3px;background:#f5e642;z-index:10000;width:0%;box-shadow:0 0 10px rgba(245,230,66,0.5);transition:width 0.1s;';
+    document.body.prepend(bar);
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        bar.style.width = (docHeight > 0 ? (scrollTop / docHeight) * 100 : 0) + '%';
+    });
+})();
