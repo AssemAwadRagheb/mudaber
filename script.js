@@ -1,25 +1,30 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Mobile Menu Toggle
     const navToggle = document.getElementById('navToggle');
+    const navIcon = document.getElementById('navIcon');
     const mobileMenu = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
     const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-    if (navToggle && mobileMenu && mobileClose) {
+    if (navToggle && mobileMenu && navIcon) {
         navToggle.addEventListener('click', () => {
-            mobileMenu.classList.add('open');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling
-        });
-
-        mobileClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('open');
-            document.body.style.overflow = ''; // Restore scrolling
+            mobileMenu.classList.toggle('open');
+            if (mobileMenu.classList.contains('open')) {
+                document.body.style.overflow = 'hidden'; // Prevent scrolling
+                navIcon.classList.remove('bi-list');
+                navIcon.classList.add('bi-x-lg');
+            } else {
+                document.body.style.overflow = ''; // Restore scrolling
+                navIcon.classList.remove('bi-x-lg');
+                navIcon.classList.add('bi-list');
+            }
         });
 
         mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('open');
                 document.body.style.overflow = '';
+                navIcon.classList.remove('bi-x-lg');
+                navIcon.classList.add('bi-list');
             });
         });
     }
@@ -37,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Scroll Reveal Animations
-    const fadeUpElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right');
+    const fadeElements = document.querySelectorAll('.fade-up, .fade-left, .fade-right');
     const revealOptions = {
         threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
@@ -52,89 +57,269 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, revealOptions);
 
-    fadeUpElements.forEach(el => revealObserver.observe(el));
+    fadeElements.forEach(el => revealObserver.observe(el));
 
-    // 4. Number Counter Animation
-    const counters = document.querySelectorAll('.counter');
-    let hasAnimatedCounters = false;
+    // 4. Custom Cursor Logic
+    const cursor = document.getElementById('customCursor');
+    const cursorDot = document.getElementById('customCursorDot');
+    
+    // Only run cursor logic if the elements exist and we're not on mobile/touch
+    if (cursor && cursorDot && window.matchMedia("(pointer: fine)").matches) {
+        document.addEventListener('mousemove', (e) => {
+            // Use requestAnimationFrame for smoother cursor performance
+            requestAnimationFrame(() => {
+                cursor.style.left = `${e.clientX}px`;
+                cursor.style.top = `${e.clientY}px`;
+                
+                // Add slight delay to the outer cursor for a "following" effect
+                setTimeout(() => {
+                    cursorDot.style.left = `${e.clientX}px`;
+                    cursorDot.style.top = `${e.clientY}px`;
+                }, 40);
+            });
+        });
 
-    const counterObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !hasAnimatedCounters) {
-                hasAnimatedCounters = true;
-                counters.forEach(counter => {
-                    const target = +counter.getAttribute('data-target');
-                    const duration = 2000; // ms
-                    const increment = target / (duration / 16); // 60fps
+        // Add hover effect to interactive elements
+        const interactiveElements = document.querySelectorAll('a, button, .eco-card, .workflow-item, .faq-question');
+        
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursor.classList.add('hover');
+                cursorDot.classList.add('hover');
+            });
+            el.addEventListener('mouseleave', () => {
+                cursor.classList.remove('hover');
+                cursorDot.classList.remove('hover');
+            });
+        });
+        
+        // Hide cursor when leaving window
+        document.addEventListener('mouseleave', () => {
+            cursor.style.display = 'none';
+            cursorDot.style.display = 'none';
+        });
+        document.addEventListener('mouseenter', () => {
+            cursor.style.display = 'block';
+            cursorDot.style.display = 'block';
+        });
+    }
 
-                    let current = 0;
-                    const updateCounter = () => {
-                        current += increment;
-                        if (current < target) {
-                            counter.innerText = Math.ceil(current);
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            counter.innerText = target;
-                        }
-                    };
-                    updateCounter();
-                });
+    // 5. FAQ Accordion Logic
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', () => {
+            const parent = question.parentElement;
+            const answer = question.nextElementSibling;
+            
+            // Close other open FAQs
+            const activeItems = document.querySelectorAll('.faq-item.active');
+            activeItems.forEach(item => {
+                if (item !== parent) {
+                    item.classList.remove('active');
+                    item.querySelector('.faq-answer').style.maxHeight = null;
+                }
+            });
+            
+            // Toggle current FAQ
+            parent.classList.toggle('active');
+            
+            if (parent.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+            } else {
+                answer.style.maxHeight = null;
             }
         });
-    }, { threshold: 0.5 });
+    });
+});
 
-    const statsSection = document.querySelector('.hero-stats');
-    if (statsSection) {
-        counterObserver.observe(statsSection);
+
+// --- WORLD-CLASS UPGRADES JS ---
+
+// Preloader Logic
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    const progressBar = document.querySelector('.loader-progress');
+    
+    if(preloader && progressBar) {
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += Math.random() * 30;
+            if (progress > 100) progress = 100;
+            progressBar.style.width = `${progress}%`;
+            
+            if (progress === 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.classList.add('hidden');
+                    setTimeout(() => preloader.remove(), 600); // cleanup DOM
+                }, 400);
+            }
+        }, 150);
     }
 });
 
-// Form Handlers
-function handleNewsletter(event) {
-    event.preventDefault();
-    const emailInput = document.getElementById('emailInput');
-    const msg = document.getElementById('newsletterMsg');
-    
-    if (emailInput.value) {
-        // Simulate API call
-        const btn = event.target.querySelector('button');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = '<i class="bi bi-arrow-repeat spin"></i>';
-        
-        setTimeout(() => {
-            msg.style.display = 'block';
-            emailInput.value = '';
-            btn.innerHTML = originalText;
-            setTimeout(() => { msg.style.display = 'none'; }, 4000);
-        }, 1000);
-    }
+// Cursor Hover Effects Enhancement
+document.querySelectorAll('a, button, .news-card').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        if(cursor) cursor.classList.add('hovered');
+        if(cursorDot) cursorDot.classList.add('hovered');
+    });
+    el.addEventListener('mouseleave', () => {
+        if(cursor) cursor.classList.remove('hovered');
+        if(cursorDot) cursorDot.classList.remove('hovered');
+    });
+});
+
+
+// COMMAND PALETTE LOGIC
+const palette = document.getElementById('cmd-palette');
+const cmdInput = document.getElementById('cmd-input');
+const cmdItems = document.querySelectorAll('.cmd-item');
+let activeIndex = -1;
+
+function openPalette() {
+    palette.style.display = 'flex';
+    document.body.classList.add('palette-open');
+    setTimeout(() => {
+        palette.style.opacity = '1';
+        palette.querySelector('.cmd-modal').style.transform = 'scale(1)';
+        cmdInput.focus();
+        cmdInput.value = '';
+        filterItems('');
+    }, 10);
 }
 
-function handleContact(btn) {
-    const wrap = btn.closest('.row');
-    const inputs = wrap.querySelectorAll('input, select, textarea');
-    let valid = true;
-    
-    inputs.forEach(input => {
-        if (!input.value && input.tagName !== 'SELECT') {
-            valid = false;
+function closePalette() {
+    palette.style.opacity = '0';
+    palette.querySelector('.cmd-modal').style.transform = 'scale(0.95)';
+    document.body.classList.remove('palette-open');
+    setTimeout(() => { palette.style.display = 'none'; }, 200);
+}
+
+function filterItems(query) {
+    const q = query.toLowerCase();
+    let visibleItems = [];
+    cmdItems.forEach(item => {
+        item.classList.remove('active');
+        const text = item.textContent.toLowerCase();
+        const keywords = item.getAttribute('data-keywords') || '';
+        if (text.includes(q) || keywords.includes(q)) {
+            item.style.display = 'flex';
+            visibleItems.push(item);
+        } else {
+            item.style.display = 'none';
         }
     });
+    activeIndex = -1;
+    return visibleItems;
+}
 
-    if (valid) {
-        const msg = document.getElementById('contactMsg');
-        const originalText = btn.innerHTML;
-        btn.innerHTML = 'Sending...';
-        
-        setTimeout(() => {
-            msg.style.display = 'block';
-            inputs.forEach(input => {
-                if(input.tagName !== 'SELECT') input.value = '';
-            });
-            btn.innerHTML = originalText;
-            setTimeout(() => { msg.style.display = 'none'; }, 5000);
-        }, 1500);
-    } else {
-        alert("Please fill in all fields before submitting.");
-    }
+if(palette && cmdInput) {
+    // Keyboard shortcut (Cmd+K / Ctrl+K)
+    document.addEventListener('keydown', e => {
+        if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+            e.preventDefault();
+            if (palette.style.display === 'none' || palette.style.display === '') openPalette();
+            else closePalette();
+        }
+        if (e.key === 'Escape' && palette.style.display !== 'none') closePalette();
+    });
+
+    // Close on click outside
+    palette.addEventListener('click', e => {
+        if(e.target === palette) closePalette();
+    });
+
+    // Filtering
+    cmdInput.addEventListener('input', e => filterItems(e.target.value));
+
+    // Keyboard navigation
+    cmdInput.addEventListener('keydown', e => {
+        const visible = Array.from(cmdItems).filter(i => i.style.display !== 'none');
+        if(e.key === 'ArrowDown') {
+            e.preventDefault();
+            activeIndex = (activeIndex + 1) % visible.length;
+            visible.forEach(i => i.classList.remove('active'));
+            if(visible[activeIndex]) {
+                visible[activeIndex].classList.add('active');
+                visible[activeIndex].scrollIntoView({block: 'nearest'});
+            }
+        } else if(e.key === 'ArrowUp') {
+            e.preventDefault();
+            activeIndex = activeIndex - 1 < 0 ? visible.length - 1 : activeIndex - 1;
+            visible.forEach(i => i.classList.remove('active'));
+            if(visible[activeIndex]) {
+                visible[activeIndex].classList.add('active');
+                visible[activeIndex].scrollIntoView({block: 'nearest'});
+            }
+        } else if(e.key === 'Enter') {
+            if(activeIndex >= 0 && visible[activeIndex]) {
+                window.location.href = visible[activeIndex].getAttribute('href');
+            } else if(visible.length > 0) {
+                window.location.href = visible[0].getAttribute('href');
+            }
+        }
+    });
+}
+
+
+
+// CUSTOM AUDIO PLAYER LOGIC
+const audio = document.getElementById('mudaber-audio');
+const playBtn = document.getElementById('audio-play-btn');
+const progressContainer = document.getElementById('audio-progress-container');
+const progressBar = document.getElementById('audio-progress');
+const currentTimeEl = document.getElementById('audio-current');
+const durationEl = document.getElementById('audio-duration');
+
+if(audio && playBtn) {
+    let isPlaying = false;
+
+    // Play / Pause
+    playBtn.addEventListener('click', () => {
+        if(isPlaying) {
+            audio.pause();
+            playBtn.innerHTML = '<i class="bi bi-play-fill" style="margin-left: 3px;"></i>';
+        } else {
+            audio.play();
+            playBtn.innerHTML = '<i class="bi bi-pause-fill"></i>';
+        }
+        isPlaying = !isPlaying;
+    });
+
+    // Format Time
+    const formatTime = (time) => {
+        const min = Math.floor(time / 60);
+        const sec = Math.floor(time % 60);
+        return `${min}:${sec < 10 ? '0' : ''}${sec}`;
+    };
+
+    // Update Progress
+    audio.addEventListener('timeupdate', () => {
+        const percent = (audio.currentTime / audio.duration) * 100;
+        progressBar.style.width = `${percent}%`;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    // Set Duration once loaded
+    audio.addEventListener('loadedmetadata', () => {
+        durationEl.textContent = formatTime(audio.duration);
+    });
+
+    // Click on progress bar to seek
+    progressContainer.addEventListener('click', (e) => {
+        const width = progressContainer.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        audio.currentTime = (clickX / width) * duration;
+    });
+    
+    // Auto-reset when ended
+    audio.addEventListener('ended', () => {
+        isPlaying = false;
+        playBtn.innerHTML = '<i class="bi bi-play-fill" style="margin-left: 3px;"></i>';
+        progressBar.style.width = '0%';
+        currentTimeEl.textContent = '0:00';
+    });
 }

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 — Page Not Found | MUDABER</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="icon" type="image/png" href="assets/images/logo.png">
+    <style>
+        :root {
+            --c-bg: #030305;
+            --c-accent: #f5e642;
+            --c-muted: #a0a0b0;
+            --ff-display: 'Space Grotesk', sans-serif;
+            --ff-body: 'Inter', sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            min-height: 100vh;
+            background: var(--c-bg);
+            color: #fff;
+            font-family: var(--ff-body);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(245,230,66,0.07) 0%, transparent 65%);
+            animation: pulse-bg 8s ease-in-out infinite alternate;
+            pointer-events: none;
+            z-index: 0;
+        }
+        @keyframes pulse-bg { 0% { transform: scale(0.9); opacity: 0.5; } 100% { transform: scale(1.1); opacity: 1; } }
+        .container-404 { position: relative; z-index: 1; max-width: 700px; }
+        .logo-wrap { display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; margin-bottom: 3rem; }
+        .logo-img { width: 40px; height: auto; }
+        .logo-text { font-family: var(--ff-display); font-size: 1.4rem; font-weight: 700; color: #fff; letter-spacing: -0.04em; }
+        .logo-text span { color: var(--c-accent); }
+        .error-code {
+            font-family: var(--ff-display);
+            font-size: clamp(8rem, 20vw, 14rem);
+            font-weight: 700;
+            line-height: 1;
+            letter-spacing: -0.05em;
+            background: linear-gradient(135deg, #fff 30%, var(--c-accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: flicker 3s ease-in-out infinite;
+        }
+        @keyframes flicker { 0%,100%{opacity:1;}92%{opacity:1;}93%{opacity:0.4;}94%{opacity:1;}96%{opacity:0.6;}97%{opacity:1;} }
+        .error-title { font-family: var(--ff-display); font-size: clamp(1.5rem,4vw,2.5rem); font-weight: 700; color: #fff; margin: 1rem 0 1.25rem; letter-spacing: -0.03em; }
+        .error-desc { color: var(--c-muted); font-size: 1.05rem; line-height: 1.7; max-width: 480px; margin: 0 auto 3rem; }
+        .btn-group { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-home { display: inline-flex; align-items: center; gap: 0.5rem; background: var(--c-accent); color: #000; font-family: var(--ff-display); font-weight: 700; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; transition: all 0.3s; }
+        .btn-home:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 10px 30px rgba(245,230,66,0.3); }
+        .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: rgba(255,255,255,0.6); font-family: var(--ff-display); font-weight: 600; font-size: 0.95rem; padding: 0.9rem 2rem; border-radius: 100px; text-decoration: none; border: 1px solid rgba(255,255,255,0.15); transition: all 0.3s; }
+        .btn-back:hover { color: #fff; border-color: rgba(255,255,255,0.4); transform: translateY(-3px); }
+        .quick-links { margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06); }
+        .quick-links p { color: var(--c-muted); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+        .quick-links-grid { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .quick-link { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; font-family: var(--ff-display); font-weight: 600; transition: color 0.2s; }
+        .quick-link:hover { color: var(--c-accent); }
+        .c-cursor { pointer-events:none;position:fixed;top:0;left:0;width:36px;height:36px;border:1.5px solid rgba(245,230,66,0.6);border-radius:50%;transform:translate(-50%,-50%);z-index:9999; }
+        .c-dot { pointer-events:none;position:fixed;top:0;left:0;width:6px;height:6px;background:#f5e642;border-radius:50%;transform:translate(-50%,-50%);z-index:9999; }
+        @media (hover:none) { .c-cursor,.c-dot{display:none;} }
+    </style>
+    <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+    <div class="c-cursor" id="cc"></div>
+    <div class="c-dot" id="cd"></div>
+
+    <div class="container-404">
+        <a href="index.html" class="logo-wrap">
+            <img src="assets/images/logo.png" alt="MUDABER Logo" class="logo-img" />
+            <span class="logo-text">MUDABER<span>.</span></span>
+        </a>
+
+        <div class="error-code">404</div>
+        <h1 class="error-title">You've Hit a Dead Drop.</h1>
+        <p class="error-desc">This track doesn't exist in our catalog — yet. The page you're looking for may have been moved, renamed, or dropped from the release schedule.</p>
+
+        <div class="btn-group">
+            <a href="index.html" class="btn-home"><i class="bi bi-house-fill"></i> Back to Home</a>
+            <a href="javascript:history.back()" class="btn-back"><i class="bi bi-arrow-left"></i> Go Back</a>
+        </div>
+
+        <div class="quick-links">
+            <p>Or try one of these:</p>
+            <div class="quick-links-grid">
+                <a href="ecosystem.html" class="quick-link">Ecosystem</a>
+                <span style="color:rgba(255,255,255,0.2);">·</span>
+                <a href="about.html" class="quick-link">About</a>
+                <span style="color:rgba(255,255,255,0.2);">·</span>
+                <a href="https://mudaber.art" target="_blank" class="quick-link">Mudaber Art</a>
+                <span style="color:rgba(255,255,255,0.2);">·</span>
+                <a href="https://mudaberghost.com" target="_blank" class="quick-link">Mudaber Ghost</a>
+                <span style="color:rgba(255,255,255,0.2);">·</span>
+                <a href="contact.html" class="quick-link">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var cc=document.getElementById('cc'),cd=document.getElementById('cd');
+        var mx=0,my=0,cx=0,cy=0;
+        document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cd.style.left=mx+'px';cd.style.top=my+'px';});
+        (function loop(){cx+=(mx-cx)*.12;cy+=(my-cy)*.12;cc.style.left=cx+'px';cc.style.top=cy+'px';requestAnimationFrame(loop);})();
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+
+    <!-- COMMAND PALETTE (CTRL+K) -->
+    <div id="cmd-palette" class="cmd-overlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 100000; align-items: flex-start; justify-content: center; padding-top: 10vh; opacity: 0; transition: opacity 0.2s;">
+        <div class="cmd-modal" style="background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 16px; width: 90%; max-width: 600px; box-shadow: 0 24px 50px rgba(0,0,0,0.5); overflow: hidden; transform: scale(0.95); transition: transform 0.2s;">
+            <div style="padding: 1.5rem; border-bottom: 1px solid var(--c-border); display: flex; align-items: center; gap: 1rem;">
+                <i class="bi bi-search" style="color: var(--c-muted); font-size: 1.2rem;"></i>
+                <input type="text" id="cmd-input" placeholder="Search the ecosystem... (try 'art' or 'tech')" style="width: 100%; background: transparent; border: none; color: #fff; font-size: 1.1rem; outline: none; font-family: var(--ff-body);" autocomplete="off" />
+                <button onclick="closePalette()" style="background: rgba(255,255,255,0.1); border: none; color: #fff; border-radius: 4px; padding: 4px 8px; font-size: 0.8rem; cursor: pointer; font-family: var(--ff-body);">ESC</button>
+            </div>
+            <div class="cmd-results" id="cmd-results" style="max-height: 400px; overflow-y: auto; padding: 1rem 0;">
+                <!-- Links will be filtered here -->
+                <a href="https://mudaber.art" target="_blank" class="cmd-item" data-keywords="art distribution spotify apple music release upload">
+                    <i class="bi bi-soundwave" style="color: #f5e642;"></i>
+                    <div style="flex:1;">
+                        <div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Mudaber Art</div>
+                        <div style="color: var(--c-muted); font-size: 0.85rem;">Music Distribution & Royalties</div>
+                    </div>
+                    <i class="bi bi-arrow-return-left text-muted-custom"></i>
+                </a>
+                <a href="https://mudaber.art/register.php" target="_blank" class="cmd-item" data-keywords="register signup account art">
+                    <i class="bi bi-person-plus" style="color: #ff4d4d;"></i>
+                    <div style="flex:1;">
+                        <div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Artist Registration</div>
+                        <div style="color: var(--c-muted); font-size: 0.85rem;">Create a Mudaber Art account</div>
+                    </div>
+                    <i class="bi bi-arrow-return-left text-muted-custom"></i>
+                </a>
+                <a href="https://mudaberghost.com" target="_blank" class="cmd-item" data-keywords="ghost production buy tracks market">
+                    <i class="bi bi-incognito" style="color: #00e5ff;"></i>
+                    <div style="flex:1;">
+                        <div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Mudaber Ghost</div>
+                        <div style="color: var(--c-muted); font-size: 0.85rem;">Premium Ghost Production</div>
+                    </div>
+                    <i class="bi bi-arrow-return-left text-muted-custom"></i>
+                </a>
+                <a href="https://mudaber.tech" target="_blank" class="cmd-item" data-keywords="tech development ai websites services">
+                    <i class="bi bi-cpu" style="color: #7FD957;"></i>
+                    <div style="flex:1;">
+                        <div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Mudaber Tech</div>
+                        <div style="color: var(--c-muted); font-size: 0.85rem;">Tech Solutions & Analytics</div>
+                    </div>
+                    <i class="bi bi-arrow-return-left text-muted-custom"></i>
+                </a>
+                <a href="contact.html" class="cmd-item" data-keywords="contact email support phone">
+                    <i class="bi bi-envelope" style="color: #fff;"></i>
+                    <div style="flex:1;">
+                        <div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Contact Us</div>
+                        <div style="color: var(--c-muted); font-size: 0.85rem;">Get in touch with our team</div>
+                    </div>
+                    <i class="bi bi-arrow-return-left text-muted-custom"></i>
+                </a>
+                <a href="careers.html" class="cmd-item" data-keywords="jobs careers hiring work">
+                    <i class="bi bi-briefcase" style="color: #fff;"></i>
+                    <div style="flex:1;">
+                        <div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Careers</div>
+                        <div style="color: var(--c-muted); font-size: 0.85rem;">Join the Mudaber team</div>
+                    </div>
+                    <i class="bi bi-arrow-return-left text-muted-custom"></i>
+                </a>
+            </div>
+            <div style="padding: 0.75rem 1.5rem; border-top: 1px solid var(--c-border); font-size: 0.8rem; color: var(--c-muted); background: rgba(0,0,0,0.2); display: flex; justify-content: space-between;">
+                <span><kbd style="background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px;">↑</kbd> <kbd style="background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px;">↓</kbd> to navigate</span>
+                <span><kbd style="background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px;">Enter</kbd> to select</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
