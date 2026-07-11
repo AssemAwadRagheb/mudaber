@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030305" />
+    <meta name="color-scheme" content="dark" />
+    <title>Mudaber â€” The Global Music Ecosystem</title>
+    <link rel="canonical" href="https://mudaber.com/" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Anti-cache meta tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Mudaber is the ultimate global hub for independent music, offering distribution, ghost production, and cutting-edge tech solutions to empower artists worldwide.">
+    <meta name="keywords" content="MUDABER, Mudaber Art, Mudaber Ghost, Mudaber Tech, music distribution, ghost production, independent artists, music technology">
+    <meta name="author" content="MUDABER">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mudaber.com/">
+    <meta property="og:title" content="Mudaber â€” The Global Music Ecosystem">
+    <meta property="og:description" content="Powering independent music worldwide. Distribution, Ghost Production, and Technology.">
+    <meta property="og:image" content="https://i.ibb.co/n8BHs9Yj/download.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mudaber.com/">
+    <meta property="twitter:title" content="Mudaber â€” The Global Music Ecosystem">
+    <meta property="twitter:description" content="Powering independent music worldwide. Distribution, Ghost Production, and Technology.">
+    <meta property="twitter:image" content="https://i.ibb.co/n8BHs9Yj/download.png">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://mudaber.com/#organization",
+      "name": "MUDABER",
+      "url": "https://mudaber.com/",
+      "logo": "assets/images/android-chrome-512x512.png",
+      "description": "The central hub of a global music ecosystem encompassing distribution, ghost production, and technology.",
+      "sameAs": [
+        "https://www.instagram.com/mudabermusic/",
+        "https://www.youtube.com/channel/UCuIaE4S8zu4opdY5oMhZjyg",
+        "https://soundcloud.com/mudaber-music",
+        "https://open.spotify.com/user/31fqwpwvwhr5u3szb5yh2yffxwbi"
+      ]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "MUDABER",
+      "url": "https://mudaber.com/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://mudaber.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Performance: preload critical assets -->
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="preload" href="script.js" as="script" />
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+    <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+    <div id="tsparticles" style="position: fixed; inset: 0; z-index: -1; pointer-events: none;"></div>
+    <!-- Skip to Content (Accessibility) -->
+    <a href="#hero" class="skip-to-content">Skip to main content</a>
+
+    <!-- No-JavaScript fallback -->
+    <noscript>
+        <div class="noscript-banner">âš ï¸ JavaScript is required for the full Mudaber experience. Please enable it in your browser settings.</div>
+    </noscript>
+    <!-- ===== COOKIE CONSENT BANNER ===== -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <i class="bi bi-cookie" style="font-size:1.4rem; color:#f5e642; margin-right:8px;"></i>
+                <span>We use cookies to enhance your experience and analyze site traffic. By continuing, you agree to our <a href="legal" style="color:#f5e642;">Cookie Policy</a>.</span>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn-decline" onclick="declineCookies()">Decline</button>
+                <button class="cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ===== FLOATING ACTION BUTTONS ===== -->
+    <div class="fab-container">
+        <button class="fab fab-totop" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top" style="display:none;">
+            <i class="bi bi-chevron-up"></i>
+        </button>
+    </div>
+
+    <!-- PRELOADER -->
+    <div id="preloader" style="position: fixed; inset: 0; background: #030305; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease, visibility 0.8s ease;">
+        <img src="assets/images/android-chrome-192x192.png" alt="MUDABER" style="width: 60px; margin-bottom: 20px; animation: pulse-glow 2s infinite alternate;" />
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: 2px; margin-bottom: 30px;">MUDABER<span style="color: #f5e642;">.</span></div>
+        <div style="width: 200px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
+            <div id="preloader-bar" style="width: 0%; height: 100%; background: #f5e642; transition: width 0.4s ease;"></div>
+        </div>
+    </div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar-mudaber" id="navbar">
+        <div class="navbar-inner">
+            <a href="/" class="nav-logo-wrap">
+                <img src="assets/images/android-chrome-192x192.png" alt="MUDABER Logo" class="logo-mark" style="width:40px; height:auto; object-fit:contain;" />
+                <span class="nav-logo-text">MUDABER<span>.</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="ecosystem">Ecosystem</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="careers">Careers</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="https://mudaber.art" class="btn-nav-ghost" target="_blank">Sign In</a>
+                <a href="ecosystem" class="btn-primary-mudaber">Explore <i class="bi bi-rocket-takeoff"></i></a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <i class="bi bi-list" id="navIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="ecosystem" class="mobile-nav-link">Ecosystem</a>
+        <a href="about" class="mobile-nav-link">About</a>
+        <a href="careers" class="mobile-nav-link">Careers</a>
+        <a href="contact" class="mobile-nav-link">Contact</a>
+        <a href="https://mudaber.art" class="btn-primary-mudaber mt-4" style="font-size: 1.2rem; padding: 1rem 2.5rem;" target="_blank">Sign In <i class="bi bi-box-arrow-in-right"></i></a>
+    </div>
+
+    <!-- HERO -->
+    <section id="hero" data-section-id="hero">
+        <video class="hero-bg-video" autoplay loop muted playsinline>
+            <source src="https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-lines-background-2782-large.mp4" type="video/mp4" />
+        </video>
+        <div class="hero-overlay"></div>
+        <div class="hero-glow"></div>
+        
+        <div class="hero-content">
+            <div class="hero-tag"><span class="hero-tag-dot"></span>The Ultimate Music Hub</div>
+            <h1 class="display-hero hero-title" id="cms-hero-title">Amplify Your Sound.<br/><span class="line2">Dominate The Globe.</span></h1>
+            <p class="hero-sub" id="cms-hero-sub">Mudaber Group is an independent music and technology ecosystem. <strong style="color:#fff;">Mudaber Art</strong> gets your music onto every major platform, <strong style="color:#fff;">Mudaber Ghost</strong> delivers world-class production on demand, and <strong style="color:#fff;">Mudaber Tech</strong> builds the infrastructure that scales it all â€” one hub, from your first track to the global stage.</p>
+            <div class="hero-cta">
+                <a href="ecosystem" class="btn-primary-mudaber" style="padding: 1.2rem 2.5rem; font-size: 1.1rem;">Discover The Ecosystem <i class="bi bi-arrow-right"></i></a>
+                <a href="https://mudaber.art" target="_blank" class="btn-outline-mudaber" style="padding: 1.2rem 2.5rem; font-size: 1.1rem;">Start Distributing <i class="bi bi-box-arrow-up-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUSTED BY MARQUEE -->
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <div class="marquee-item">Spotify</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+            <div class="marquee-item">Apple Music</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+            <div class="marquee-item">YouTube Music</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+            <div class="marquee-item">SoundCloud</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+            <div class="marquee-item">Beatport</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+            <div class="marquee-item">TikTok</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+            <div class="marquee-item">Tidal</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+            <div class="marquee-item">Tencent</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+            <div class="marquee-item">Amazon Music</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+            <div class="marquee-item">Deezer</div>
+            <div class="marquee-item"><span style="color:#f5e642;">&bull;</span></div>
+        </div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="ticker-wrap">
+        <div class="ticker-inner">
+            <div class="ticker-item"><span class="dot">&bull;</span> Mudaber Art</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Music Distribution</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Mudaber Ghost</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Ghost Production</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Mudaber Tech</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> AI &amp; Technology</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Global Publishing</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Artist Management</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Mudaber Art</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Music Distribution</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Mudaber Ghost</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Ghost Production</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> Mudaber Tech</div>
+            <div class="ticker-item"><span class="dot">&bull;</span> AI &amp; Technology</div>
+        </div>
+    </div>
+
+    <!-- PLATFORM UI SHOWCASE (BENTO BOX) -->
+    <section class="section-pad" style="background: #030305; position: relative; overflow: hidden; border-top: 1px solid rgba(255,255,255,0.05); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div style="position: absolute; top: -100px; left: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(255,51,102,0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+        <div style="position: absolute; bottom: -100px; right: -100px; width: 400px; height: 400px; background: radial-gradient(circle, rgba(127,217,87,0.1) 0%, transparent 70%); border-radius: 50%; pointer-events: none;"></div>
+        <div class="container-mudaber" style="position: relative; z-index: 2;">
+            <div class="text-center fade-up mb-5">
+                <div class="eyebrow" style="color: #f5e642;">Live Platforms</div>
+                <h2 class="display-section">Inside The Ecosystem</h2>
+                <p class="text-muted-custom mt-3 mx-auto" style="max-width: 600px;">Get direct access to our live infrastructure. Mudaber Tech's industry-leading portals and tools are ready for deployment.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; position: relative; z-index: 2;">
+                <!-- Card 1 -->
+                <div class="fade-up delay-1" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 2rem; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(127,217,87,0.3)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.transform='translateY(0)'">
+                    <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(127,217,87,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;"><i class="bi bi-cpu" style="font-size: 1.5rem; color: #7FD957;"></i></div>
+                    <h3 style="font-family: var(--ff-display); font-size: 1.3rem; color: #fff; margin-bottom: 0.8rem;">Mudaber Tech API</h3>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">Integrate our advanced backend infrastructure directly into your label's workflow. Scale seamlessly.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="https://mudaber.tech/services.php" target="_blank" class="btn-outline-mudaber" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; width: 100%; text-align: center;">View Services</a>
+                        <a href="https://mudaber.tech/portfolio.php" target="_blank" class="btn-primary-mudaber" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; background: #7FD957; color: #000; width: 100%; text-align: center; border:none;">Portfolio</a>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="fade-up delay-2" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 2rem; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(255,77,77,0.3)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.transform='translateY(0)'">
+                    <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(255,77,77,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;"><i class="bi bi-window-desktop" style="font-size: 1.5rem; color: #ff4d4d;"></i></div>
+                    <h3 style="font-family: var(--ff-display); font-size: 1.3rem; color: #fff; margin-bottom: 0.8rem;">Web Builder Portal</h3>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">Our proprietary builder portal. Create, manage, and scale your digital artist presence instantly.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="https://mudaber.tech/website-builder.php" target="_blank" class="btn-outline-mudaber" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; width: 100%; text-align: center;">Try Builder</a>
+                        <a href="https://mudaber.art/register.php" target="_blank" class="btn-primary-mudaber" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; background: #ff4d4d; color: #fff; width: 100%; text-align: center; border:none;">Sign Up</a>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="fade-up delay-3" style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 20px; padding: 2rem; transition: all 0.3s;" onmouseover="this.style.background='rgba(255,255,255,0.04)'; this.style.borderColor='rgba(245,230,66,0.3)'; this.style.transform='translateY(-5px)'" onmouseout="this.style.background='rgba(255,255,255,0.02)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.transform='translateY(0)'">
+                    <div style="width: 50px; height: 50px; border-radius: 12px; background: rgba(245,230,66,0.1); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem;"><i class="bi bi-bar-chart-line" style="font-size: 1.5rem; color: var(--c-accent);"></i></div>
+                    <h3 style="font-family: var(--ff-display); font-size: 1.3rem; color: #fff; margin-bottom: 0.8rem;">Global Distribution</h3>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem;">Real-time analytics and global distribution tracking. Get your music heard everywhere.</p>
+                    <div style="display: flex; gap: 1rem;">
+                        <a href="ecosystem.html" class="btn-outline-mudaber" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; width: 100%; text-align: center;">Learn More</a>
+                        <a href="https://mudaber.art" target="_blank" class="btn-primary-mudaber" style="padding: 0.6rem 1.2rem; font-size: 0.85rem; width: 100%; text-align: center;">Dashboard</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ECOSYSTEM SHOWCASE -->
+    <section id="ecosystem" class="section-pad-lg bg-surface" data-section-id="ecosystem">
+        <div class="container-mudaber">
+            <div class="text-center fade-up">
+                <div class="eyebrow">Our Core Platforms</div>
+                <div class="accent-line mx-auto"></div>
+                <h2 class="display-section">The Mudaber Ecosystem</h2>
+                <p class="text-muted-custom mt-4 mx-auto" style="max-width: 600px; font-size: 1.1rem;">Three powerful pillars designed to take you from a raw idea in the studio to global charting success.</p>
+            </div>
+            <div class="ecosystem-grid">
+                <a href="https://mudaber.art" target="_blank" class="eco-card fade-up delay-1">
+                    <div class="eco-icon-wrap" style="color: #f5e642; border-color: rgba(245,230,66,0.3);"><i class="bi bi-soundwave"></i></div>
+                    <h3 class="eco-title">Mudaber Art</h3>
+                    <p class="eco-desc" id="cms-eco-art-desc">The ultimate platform for global music distribution and publishing. Release your tracks on 200+ platforms including Spotify, Apple Music, YouTube Music, SoundCloud, and Beatport, keep 100% of your rights, and track your royalties in real-time.</p>
+                    <div class="eco-link">Launch Mudaber Art <i class="bi bi-arrow-right"></i></div>
+                </a>
+                <a href="https://mudaberghost.com" target="_blank" class="eco-card fade-up delay-2">
+                    <div class="eco-icon-wrap" style="color: #00e5ff; border-color: rgba(0,229,255,0.3);"><i class="bi bi-incognito"></i></div>
+                    <h3 class="eco-title">Mudaber Ghost</h3>
+                    <p class="eco-desc">Connect with elite, industry-vetted ghost producers. Commission custom, chart-ready tracks in genres like Hard Techno and JAMAX, and receive full commercial rights to release them under your own name.</p>
+                    <div class="eco-link" style="color: #00e5ff;">Launch Mudaber Ghost <i class="bi bi-arrow-right" style="color: #00e5ff;"></i></div>
+                </a>
+                <a href="https://mudaber.tech" target="_blank" class="eco-card fade-up delay-3">
+                    <div class="eco-icon-wrap" style="color: #ff3366; border-color: rgba(255,51,102,0.3);"><i class="bi bi-braces-asterisk"></i></div>
+                    <h3 class="eco-title">Mudaber Tech</h3>
+                    <p class="eco-desc">The technological engine driving the music industry forward. From AI-powered mastering tools to custom website builders and advanced analytics dashboards tailored for record labels and artists.</p>
+                    <div class="eco-link" style="color: #ff3366;">Launch Mudaber Tech <i class="bi bi-arrow-right" style="color: #ff3366;"></i></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WORKFLOW -->
+    <section id="workflow" class="section-pad bg-default" data-section-id="workflow">
+        <div class="container-mudaber">
+            <div class="text-center fade-up mb-5">
+                <div class="eyebrow">How It Works</div>
+                <div class="accent-line mx-auto"></div>
+                <h2 class="display-section">From Studio to Stardom</h2>
+            </div>
+            <div class="workflow-wrap"></div>
+        </div>
+    </section>
+
+    <!-- FEATURED RELEASE (AUDIO PLAYER) -->
+    <section id="featured-release" class="section-pad" style="background: var(--c-bg); border-top: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
+        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(245,230,66,0.05) 0%, transparent 60%); border-radius: 50%; pointer-events: none;"></div>
+        <div class="container-mudaber" style="position: relative; z-index: 2;">
+            <div class="fade-up mb-5 text-center">
+                <div class="eyebrow" style="color: #f5e642;">Live from Mudaber Art</div>
+                <h2 class="display-section mb-3">Featured Release</h2>
+            </div>
+            <div class="audio-player-wrapper fade-up delay-1" style="max-width: 700px; margin: 0 auto; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; backdrop-filter: blur(10px); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+                <div id="album-art-wrap" style="width: 120px; height: 120px; border-radius: 16px; overflow: hidden; flex-shrink: 0; box-shadow: 0 10px 20px rgba(0,0,0,0.5); position: relative;">
+                    <img src="assets/artist/WhatsApp Image 2026-07-03 at 12.54.41 PM.jpeg" alt="Album Cover" id="vinyl-disc" style="width: 100%; height: 100%; object-fit: cover;" />
+                    <div style="position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%, rgba(0,0,0,0.5) 100%); mix-blend-mode: overlay;"></div>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem;">
+                        <div>
+                            <div id="cms-featured-title" style="color: #fff; font-family: var(--ff-display); font-weight: 700; font-size: 1.2rem; letter-spacing: -0.02em;">Mudaber Exclusive</div>
+                            <div id="cms-featured-artist" style="color: var(--c-muted); font-size: 0.9rem;">Mudaber Music</div>
+                        </div>
+                        <div id="cms-featured-genre" style="background: rgba(245,230,66,0.1); color: #f5e642; padding: 4px 10px; border-radius: 100px; font-size: 0.75rem; font-weight: 700; border: 1px solid rgba(245,230,66,0.2);">TECHNO</div>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 1rem; margin-top: 1.5rem;">
+                        <span id="audio-current" style="color: var(--c-muted); font-size: 0.8rem; font-variant-numeric: tabular-nums;">0:00</span>
+                        <div id="audio-progress-container" style="flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 100px; cursor: pointer; position: relative; overflow: hidden;">
+                            <div id="audio-progress" style="width: 0%; height: 100%; background: #f5e642; border-radius: 100px; pointer-events: none;"></div>
+                        </div>
+                        <span id="audio-duration" style="color: var(--c-muted); font-size: 0.8rem; font-variant-numeric: tabular-nums;">2:45</span>
+                    </div>
+                    <div style="display: flex; align-items: center; justify-content: center; gap: 1.5rem; margin-top: 1rem;">
+                        <button class="audio-btn" style="background: transparent; border: none; color: rgba(255,255,255,0.6); font-size: 1.2rem; cursor: pointer; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'"><i class="bi bi-skip-backward-fill"></i></button>
+                        <button id="audio-play-btn" style="width: 46px; height: 46px; border-radius: 50%; background: #fff; border: none; color: #000; font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 0 20px rgba(255,255,255,0.4)'" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none'">
+                            <i class="bi bi-play-fill" style="margin-left: 3px;"></i>
+                        </button>
+                        <button class="audio-btn" style="background: transparent; border: none; color: rgba(255,255,255,0.6); font-size: 1.2rem; cursor: pointer; transition: color 0.2s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='rgba(255,255,255,0.6)'"><i class="bi bi-skip-forward-fill"></i></button>
+                    </div>
+                    <div style="text-align: center; margin-top: 1rem;">
+                        <a href="https://soundcloud.com/mudaber-music" target="_blank" style="color: var(--c-muted); font-size: 0.8rem; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: color 0.2s;" onmouseover="this.style.color='#f5e642'" onmouseout="this.style.color='var(--c-muted)'">
+                            <i class="bi bi-soundwave"></i> Listen on SoundCloud
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <audio id="mudaber-audio" preload="none" src="assets/audio/featured.mp3"></audio>
+        </div>
+    </section>
+
+    <!-- NEWS & PRESS SECTION -->
+    <section id="news" class="section-pad" data-section-id="news">
+        <div class="container-mudaber">
+            <div class="fade-up mb-5 text-center">
+                <div class="eyebrow">The Latest</div>
+                <h2 class="display-section mb-3">Press &amp; Insights</h2>
+                <p class="text-muted-custom mx-auto" style="max-width: 600px;">Stay up to date with the newest features, artist signings, and technology updates from the Mudaber ecosystem.</p>
+            </div>
+            <div style="display: flex; flex-direction: column; gap: 1.5rem; max-width: 900px; margin: 0 auto;">
+                <a href="press" class="fade-up delay-1" style="display: flex; gap: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 16px; align-items: center; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.transform='translateX(10px)'; this.style.borderColor='rgba(245,230,66,0.3)'; this.style.background='rgba(255,255,255,0.04)'" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.background='rgba(255,255,255,0.02)'">
+                    <div style="width: 100px; height: 100px; border-radius: 12px; overflow: hidden; flex-shrink: 0;"><img src="assets/artist/WhatsApp Image 2026-07-03 at 12.54.41 PM (2).jpeg" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%);" alt="News" /></div>
+                    <div style="flex: 1;">
+                        <div style="color: var(--c-accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">JULY 02, 2026</div>
+                        <h3 style="font-family: var(--ff-display); font-size: 1.3rem; color: #fff; margin-bottom: 0.4rem;">Mudaber Tech Launches AI Mastering Beta</h3>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0;">Our new AI-driven mastering engine is now available in beta for all Mudaber Art users.</p>
+                    </div>
+                    <div style="color: var(--c-muted); font-size: 1.8rem; padding-left: 1rem; opacity: 0.5;"><i class="bi bi-arrow-right-short"></i></div>
+                </a>
+                <a href="press" class="fade-up delay-2" style="display: flex; gap: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 16px; align-items: center; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.transform='translateX(10px)'; this.style.borderColor='rgba(245,230,66,0.3)'; this.style.background='rgba(255,255,255,0.04)'" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.background='rgba(255,255,255,0.02)'">
+                    <div style="width: 100px; height: 100px; border-radius: 12px; overflow: hidden; flex-shrink: 0;"><img src="assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (9).jpeg" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%);" alt="News" /></div>
+                    <div style="flex: 1;">
+                        <div style="color: var(--c-accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">JUNE 15, 2026</div>
+                        <h3 style="font-family: var(--ff-display); font-size: 1.3rem; color: #fff; margin-bottom: 0.4rem;">Over 1 Billion Streams Generated in 2026</h3>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0;">Independent artists on the Mudaber network have surpassed 1 billion streams globally.</p>
+                    </div>
+                    <div style="color: var(--c-muted); font-size: 1.8rem; padding-left: 1rem; opacity: 0.5;"><i class="bi bi-arrow-right-short"></i></div>
+                </a>
+                <a href="press" class="fade-up delay-3" style="display: flex; gap: 2rem; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 16px; align-items: center; text-decoration: none; transition: all 0.3s;" onmouseover="this.style.transform='translateX(10px)'; this.style.borderColor='rgba(245,230,66,0.3)'; this.style.background='rgba(255,255,255,0.04)'" onmouseout="this.style.transform='translateX(0)'; this.style.borderColor='rgba(255,255,255,0.05)'; this.style.background='rgba(255,255,255,0.02)'">
+                    <div style="width: 100px; height: 100px; border-radius: 12px; overflow: hidden; flex-shrink: 0;"><img src="assets/artist/WhatsApp Image 2026-07-03 at 12.54.43 PM.jpeg" style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(20%);" alt="News" /></div>
+                    <div style="flex: 1;">
+                        <div style="color: var(--c-accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 0.5rem;">MAY 28, 2026</div>
+                        <h3 style="font-family: var(--ff-display); font-size: 1.3rem; color: #fff; margin-bottom: 0.4rem;">Mudaber Ghost Acquires 'Elite Sounds'</h3>
+                        <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem; margin: 0;">Strengthening our ghost production marketplace with a major catalog acquisition.</p>
+                    </div>
+                    <div style="color: var(--c-muted); font-size: 1.8rem; padding-left: 1rem; opacity: 0.5;"><i class="bi bi-arrow-right-short"></i></div>
+                </a>
+            </div>
+            <div class="text-center mt-5 fade-up"><a href="press" class="btn-outline-mudaber">View All News</a></div>
+        </div>
+    </section>
+
+    <section id="global" class="section-pad-lg bg-surface" data-section-id="global">
+        <div class="container-mudaber global-reach-wrap">
+            <div class="fade-up mb-5">
+                <div class="eyebrow">Worldwide Impact</div>
+                <h2 class="display-section mb-3">A Global Music Powerhouse</h2>
+                <p class="text-muted-custom mx-auto" style="max-width: 600px;">Headquartered in London, UK, Mudaber's infrastructure transcends borders, connecting artists with billions of listeners worldwide.</p>
+            </div>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg" alt="Global Map" class="global-map-bg fade-up" />
+            <div class="global-stats">
+                <div class="g-stat fade-up delay-1"><div class="g-stat-num" data-target="150" data-suffix="+">150+</div><div class="g-stat-label">Countries Reached</div></div>
+                <div class="g-stat fade-up delay-2"><div class="g-stat-num" id="cms-stat-platforms" data-target="200" data-suffix="+">200+</div><div class="g-stat-label">Streaming Platforms</div></div>
+                <div class="g-stat fade-up delay-3"><div class="g-stat-num" data-target="500" data-suffix="+">500+</div><div class="g-stat-label">Active Artists</div></div>
+                <div class="g-stat fade-up delay-4"><div class="g-stat-num" data-target="100" data-suffix="%">100%</div><div class="g-stat-label">Rights Retained</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ARTISTS SHOWCASE ===== -->
+    <section class="section-pad-lg" style="background: var(--c-bg); overflow: hidden;">
+        <div class="container-mudaber">
+            <div class="text-center fade-up mb-5">
+                <div class="eyebrow">Our Artists</div>
+                <div class="accent-line mx-auto"></div>
+                <h2 class="display-section">Powered by Mudaber</h2>
+                <p class="text-muted-custom mt-4 mx-auto" style="max-width: 600px; font-size: 1.1rem;">From Hard Techno to JAMAX â€” meet the independent artists building global careers through the Mudaber ecosystem.</p>
+            </div>
+            <div class="artists-grid" id="cms-artists-grid">
+                <div class="artist-card fade-up delay-1"><img src="assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (1).jpeg" alt="Mudaber Artist" loading="lazy" /><div class="artist-card-overlay"><div class="artist-card-name">KRYPT0</div><div class="artist-card-genre">Hard Techno Â· Mudaber Art</div></div><div class="artist-card-border"></div></div>
+                <div class="artist-card fade-up delay-2"><img src="assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (5).jpeg" alt="Mudaber Artist" loading="lazy" /><div class="artist-card-overlay"><div class="artist-card-name">SHADOW X</div><div class="artist-card-genre">Ghost Production Â· Mudaber Ghost</div></div><div class="artist-card-border"></div></div>
+                <div class="artist-card fade-up delay-3"><img src="assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (7).jpeg" alt="Mudaber Artist" loading="lazy" /><div class="artist-card-overlay"><div class="artist-card-name">KOSM1C</div><div class="artist-card-genre">Electronic Â· Mudaber Art</div></div><div class="artist-card-border"></div></div>
+                <div class="artist-card fade-up delay-1"><img src="assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (8).jpeg" alt="Mudaber Artist" loading="lazy" /><div class="artist-card-overlay"><div class="artist-card-name">NOVA DJ</div><div class="artist-card-genre">Techno Â· Live Sets</div></div><div class="artist-card-border"></div></div>
+                <div class="artist-card fade-up delay-2"><img src="assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (9).jpeg" alt="Mudaber Artist" loading="lazy" /><div class="artist-card-overlay"><div class="artist-card-name">LYRA</div><div class="artist-card-genre">Melodic Techno Â· JAMAX</div></div><div class="artist-card-border"></div></div>
+                <div class="artist-card fade-up delay-3"><img src="assets/artist/WhatsApp Image 2026-07-03 at 12.54.41 PM (2).jpeg" alt="Mudaber Artist" loading="lazy" /><div class="artist-card-overlay"><div class="artist-card-name">PULSE</div><div class="artist-card-genre">Electronic Â· Mudaber Art</div></div><div class="artist-card-border"></div></div>
+                <div class="artist-card fade-up delay-1"><img src="assets/artist/WhatsApp Image 2026-07-03 at 12.54.41 PM.jpeg" alt="Mudaber Artist" loading="lazy" /><div class="artist-card-overlay"><div class="artist-card-name">PHANTOM</div><div class="artist-card-genre">Ghost Production Â· Mudaber Ghost</div></div><div class="artist-card-border"></div></div>
+                <div class="artist-card fade-up delay-2"><img src="assets/artist/WhatsApp Image 2026-07-03 at 12.54.43 PM.jpeg" alt="Mudaber Artist" loading="lazy" /><div class="artist-card-overlay"><div class="artist-card-name">VECTOR</div><div class="artist-card-genre">Hard Techno Â· Live DJ</div></div><div class="artist-card-border"></div></div>
+            </div>
+            <div class="text-center mt-4 fade-up" style="margin-top: 4rem;">
+                <a href="https://mudaber.art/register.php" target="_blank" class="btn-primary-mudaber" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Join Our Artist Roster <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS ===== -->
+    <section id="testimonials" class="section-pad" style="background: var(--c-bg); overflow: hidden;" data-section-id="testimonials">
+        <div class="container-mudaber">
+            <div class="text-center fade-up mb-5">
+                <div class="eyebrow">What Artists Say</div>
+                <h2 class="display-section">Trusted by Creators Worldwide</h2>
+            </div>
+            <div class="testimonials-grid"></div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section-pad bg-default" data-section-id="faq">
+        <div class="container-mudaber">
+            <div class="text-center fade-up">
+                <div class="eyebrow">Knowledge Base</div>
+                <div class="accent-line mx-auto"></div>
+                <h2 class="display-section">Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-wrap"></div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="row" style="display:flex; flex-wrap:wrap; gap:3rem;">
+                <div style="flex: 2; min-width: 300px;">
+                    <a href="/" class="footer-logo">MUDABER<span>.</span></a>
+                    <p class="footer-desc">The central hub of the world's most advanced independent music ecosystem. Registered in England &amp; Wales (No. 16915064).</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mudabermusic/" target="_blank" class="social-btn"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCuIaE4S8zu4opdY5oMhZjyg" target="_blank" class="social-btn"><i class="bi bi-youtube"></i></a>
+                        <a href="https://soundcloud.com/mudaber-music" target="_blank" class="social-btn"><i class="bi bi-soundwave"></i></a>
+                        <a href="https://open.spotify.com/user/31fqwpwvwhr5u3szb5yh2yffxwbi" target="_blank" class="social-btn"><i class="bi bi-spotify"></i></a>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <div class="footer-col-title">Ecosystem</div>
+                    <ul class="footer-links">
+                        <li><a href="https://mudaber.art" target="_blank">Mudaber Art</a></li>
+                        <li><a href="https://mudaberghost.com" target="_blank">Mudaber Ghost</a></li>
+                        <li><a href="https://mudaber.tech" target="_blank">Mudaber Tech</a></li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <div class="footer-col-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="careers">Careers</a></li>
+                        <li><a href="contact">Contact Us</a></li>
+                        <li><a href="press">Press</a></li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <div class="footer-col-title">Legal</div>
+                    <ul class="footer-links">
+                        <li><a href="legal">Privacy Policy</a></li>
+                        <li><a href="legal">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="fade-up" style="border-top: 1px solid var(--c-border); padding-top: 3rem; margin-top: 1rem; text-align: center;">
+                <h4 style="font-family: var(--ff-display); color: #fff; margin-bottom: 0.5rem;">Stay in the Loop</h4>
+                <p class="text-muted-custom" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Get the latest news, artist stories, and platform updates delivered to your inbox.</p>
+                <form class="newsletter-wrap" onsubmit="handleNewsletter(event)">
+                    <input type="email" class="newsletter-input" placeholder="support@mudaber.art" required aria-label="Email address" />
+                    <button type="submit" class="newsletter-btn">Subscribe <i class="bi bi-send-fill"></i></button>
+                </form>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mudaber Ltd. All Rights Reserved. </p>
+                <p>112 Loughborough House, 2 Honour Gardens, London RM8 2GJ</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Vanilla Tilt JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            VanillaTilt.init(document.querySelectorAll(".card-ecosystem, .news-card"), {
+                max: 10, speed: 400, glare: true, "max-glare": 0.2, scale: 1.02
+            });
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+// ===== GLOBAL CMS LOADER =====
+// Fetch content.json and inject into the DOM dynamically
+document.addEventListener('DOMContentLoaded', async () => {
+    try {
+        // Fetch the JSON with a cache-busting query parameter
+        const response = await fetch('content.json?v=' + new Date().getTime());
+        if (!response.ok) throw new Error("Could not load content.json");
+        
+        const globalData = await response.json();
+                if (window.applyTheme) window.applyTheme(globalData.theme);
+                if (window.applyBackgrounds) window.applyBackgrounds(globalData.backgrounds, 'index');
+                if (window.applySections) window.applySections('index', globalData);
+                if (window.renderDynamicContent) window.renderDynamicContent('index', globalData.index);
+        const cmsData = globalData.index; // Get data specifically for the index page
+        if (!cmsData) return;
+
+        // Helper to update text/html
+        const updateEl = (id, html) => {
+            if(html && document.getElementById(id)) {
+                document.getElementById(id).innerHTML = html;
+            }
+        };
+
+        // Helper to update attributes
+        const updateAttr = (id, attr, val) => {
+            if(val && document.getElementById(id)) {
+                document.getElementById(id).setAttribute(attr, val);
+            }
+        };
+
+        updateEl('cms-hero-title', cmsData.heroTitle);
+        updateEl('cms-hero-sub', cmsData.heroSub);
+        updateEl('cms-eco-art-desc', cmsData.ecoArtDesc);
+        updateEl('cms-cta-desc', cmsData.ctaDesc);
+
+        if (globalData.tracks && globalData.tracks.length > 0) {
+            const feat = globalData.tracks.find(t => t.featured) || globalData.tracks[0];
+            updateEl('cms-featured-title', feat.title);
+            updateEl('cms-featured-artist', feat.artist);
+            updateEl('cms-featured-genre', feat.genre);
+            if (document.getElementById('vinyl-disc') && feat.coverUrl) document.getElementById('vinyl-disc').src = feat.coverUrl;
+            if (document.getElementById('featured-audio') && feat.audioUrl) document.getElementById('featured-audio').src = feat.audioUrl;
+        }
+
+        // Update stats everywhere
+        if(cmsData.statPlatforms) {
+            document.querySelectorAll('.cms-stat-platforms').forEach(el => {
+                el.textContent = cmsData.statPlatforms + "+";
+            });
+        }
+
+        // Update artists grid if data exists
+        if(cmsData.artists && cmsData.artists.length > 0) {
+            const grid = document.getElementById('cms-artists-grid');
+            if(grid) {
+                grid.innerHTML = ''; // Clear hardcoded
+                cmsData.artists.forEach(artist => {
+                    const card = document.createElement('div');
+                    card.className = 'artist-card reveal';
+                    card.innerHTML = `
+                        <img src="${artist.image}" alt="${artist.name}" loading="lazy" />
+                        <div class="artist-info">
+                            <h3>${artist.name}</h3>
+                            <p>${artist.genre}</p>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            }
+        }
+    } catch(e) {
+        console.warn("Global CMS Loader Error:", e);
+    }
+});
+
+// ===== GLOBAL WIDGETS JS =====
+(function() {
+    if (!localStorage.getItem('mudaber_cookies_accepted')) {
+        setTimeout(() => { const banner = document.getElementById('cookieBanner'); if (banner) banner.classList.add('show'); }, 2000);
+    }
+})();
+function acceptCookies() { localStorage.setItem('mudaber_cookies_accepted', 'true'); const b = document.getElementById('cookieBanner'); if (b) { b.style.bottom = '-200px'; setTimeout(() => b.remove(), 600); } }
+function declineCookies() { localStorage.setItem('mudaber_cookies_accepted', 'declined'); const b = document.getElementById('cookieBanner'); if (b) { b.style.bottom = '-200px'; setTimeout(() => b.remove(), 600); } }
+window.addEventListener('scroll', () => { const btn = document.getElementById('scrollTopBtn'); if (btn) btn.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
+function animateCounter(el) { const target = parseFloat(el.getAttribute('data-target')); const suffix = el.getAttribute('data-suffix') || ''; const prefix = el.getAttribute('data-prefix') || ''; const duration = 2000; const step = target / (duration / 16); let current = 0; const timer = setInterval(() => { current += step; if (current >= target) { current = target; clearInterval(timer); } el.textContent = prefix + (Number.isInteger(target) ? Math.floor(current) : current.toFixed(1)) + suffix; }, 16); }
+const counterObserver = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting && !entry.target.classList.contains('counted')) { entry.target.classList.add('counted'); animateCounter(entry.target); } }); }, { threshold: 0.5 });
+document.querySelectorAll('.g-stat-num[data-target]').forEach(el => counterObserver.observe(el));
+    </script>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function() {
+                navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function(err) { console.log('ServiceWorker registration failed: ', err); });
+            });
+        }
+    </script>
+
+    <!-- COMMAND PALETTE (CTRL+K) -->
+    <div id="cmd-palette" class="cmd-overlay" style="display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(8px); z-index: 100000; align-items: flex-start; justify-content: center; padding-top: 10vh; opacity: 0; transition: opacity 0.2s;">
+        <div class="cmd-modal" style="background: var(--c-surface); border: 1px solid var(--c-border); border-radius: 16px; width: 90%; max-width: 600px; box-shadow: 0 24px 50px rgba(0,0,0,0.5); overflow: hidden; transform: scale(0.95); transition: transform 0.2s;">
+            <div style="padding: 1.5rem; border-bottom: 1px solid var(--c-border); display: flex; align-items: center; gap: 1rem;">
+                <i class="bi bi-search" style="color: var(--c-muted); font-size: 1.2rem;"></i>
+                <input type="text" id="cmd-input" placeholder="Search the ecosystem... (try 'art' or 'tech')" style="width: 100%; background: transparent; border: none; color: #fff; font-size: 1.1rem; outline: none; font-family: var(--ff-body);" autocomplete="off" />
+                <button onclick="closePalette()" style="background: rgba(255,255,255,0.1); border: none; color: #fff; border-radius: 4px; padding: 4px 8px; font-size: 0.8rem; cursor: pointer; font-family: var(--ff-body);">ESC</button>
+            </div>
+            <div class="cmd-results" id="cmd-results" style="max-height: 400px; overflow-y: auto; padding: 1rem 0;">
+                <a href="https://mudaber.art" target="_blank" class="cmd-item" data-keywords="art distribution spotify apple music release upload"><i class="bi bi-soundwave" style="color: #f5e642;"></i><div style="flex:1;"><div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Mudaber Art</div><div style="color: var(--c-muted); font-size: 0.85rem;">Music Distribution &amp; Royalties</div></div><i class="bi bi-arrow-return-left text-muted-custom"></i></a>
+                <a href="https://mudaber.art/register.php" target="_blank" class="cmd-item" data-keywords="register signup account art"><i class="bi bi-person-plus" style="color: #ff4d4d;"></i><div style="flex:1;"><div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Artist Registration</div><div style="color: var(--c-muted); font-size: 0.85rem;">Create a Mudaber Art account</div></div><i class="bi bi-arrow-return-left text-muted-custom"></i></a>
+                <a href="https://mudaberghost.com" target="_blank" class="cmd-item" data-keywords="ghost production buy tracks market"><i class="bi bi-incognito" style="color: #00e5ff;"></i><div style="flex:1;"><div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Mudaber Ghost</div><div style="color: var(--c-muted); font-size: 0.85rem;">Premium Ghost Production</div></div><i class="bi bi-arrow-return-left text-muted-custom"></i></a>
+                <a href="https://mudaber.tech" target="_blank" class="cmd-item" data-keywords="tech development ai websites services"><i class="bi bi-cpu" style="color: #7FD957;"></i><div style="flex:1;"><div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Mudaber Tech</div><div style="color: var(--c-muted); font-size: 0.85rem;">Tech Solutions &amp; Analytics</div></div><i class="bi bi-arrow-return-left text-muted-custom"></i></a>
+                <a href="contact" class="cmd-item" data-keywords="contact email support phone"><i class="bi bi-envelope" style="color: #fff;"></i><div style="flex:1;"><div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Contact Us</div><div style="color: var(--c-muted); font-size: 0.85rem;">Get in touch with our team</div></div><i class="bi bi-arrow-return-left text-muted-custom"></i></a>
+                <a href="careers" class="cmd-item" data-keywords="jobs careers hiring work"><i class="bi bi-briefcase" style="color: #fff;"></i><div style="flex:1;"><div style="color: #fff; font-weight: 600; font-family: var(--ff-display);">Careers</div><div style="color: var(--c-muted); font-size: 0.85rem;">Join the Mudaber team</div></div><i class="bi bi-arrow-return-left text-muted-custom"></i></a>
+            </div>
+            <div style="padding: 0.75rem 1.5rem; border-top: 1px solid var(--c-border); font-size: 0.8rem; color: var(--c-muted); background: rgba(0,0,0,0.2); display: flex; justify-content: space-between;">
+                <span><kbd style="background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px;">â†‘</kbd> <kbd style="background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px;">â†“</kbd> to navigate</span>
+                <span><kbd style="background:rgba(255,255,255,0.1); padding:2px 6px; border-radius:4px;">Enter</kbd> to select</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- tsParticles Global -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine@2.12.0/tsparticles.engine.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-basic@2.12.0/tsparticles.basic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-interaction-particles-links@2.12.0/tsparticles.interaction.particles.links.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-move-base@2.12.0/tsparticles.move.base.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-shape-circle@2.12.0/tsparticles.shape.circle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-color@2.12.0/tsparticles.updater.color.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-opacity@2.12.0/tsparticles.updater.opacity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-size@2.12.0/tsparticles.updater.size.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="particles-init.js"></script>
+</body>
+</html>

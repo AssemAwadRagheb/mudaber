@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Anti-cache meta tags -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030305" />
+    <meta name="color-scheme" content="dark" />
+    <title>Careers at Mudaber</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Join the Mudaber team. Explore career opportunities in the music industry, technology, and ghost production.">
+    <meta name="keywords" content="Mudaber careers, music industry jobs, tech jobs, ghost production roles">
+    <meta name="author" content="MUDABER">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mudaber.com/careers">
+    <meta property="og:title" content="Careers at Mudaber | Join the Team">
+    <meta property="og:description" content="Explore career opportunities at Mudaber.">
+    <meta property="og:image" content="https://i.ibb.co/n8BHs9Yj/download.png">
+    <link rel="canonical" href="https://mudaber.com/careers" />
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://mudaber.com/#organization",
+      "name": "MUDABER",
+      "url": "https://mudaber.com/"
+    }
+    </script>
+
+    <link rel="preload" href="style.css" as="style" />
+    <link rel="preload" href="script.js" as="script" />
+    <link rel="manifest" href="manifest.json" />
+</head>
+<body>
+    <div id="tsparticles" style="position: fixed; inset: 0; z-index: -1; pointer-events: none;"></div>
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
+    <!-- PRELOADER -->
+    <div id="preloader" style="position: fixed; inset: 0; background: #030305; z-index: 99999; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: opacity 0.8s ease, visibility 0.8s ease;">
+        <img src="assets/images/android-chrome-192x192.png" alt="MUDABER" style="width: 60px; margin-bottom: 20px; animation: pulse-glow 2s infinite alternate;" />
+        <div style="font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: 2px; margin-bottom: 30px;">MUDABER<span style="color: #f5e642;">.</span></div>
+        <div style="width: 200px; height: 2px; background: rgba(255,255,255,0.1); border-radius: 2px; overflow: hidden;">
+            <div id="preloader-bar" style="width: 0%; height: 100%; background: #f5e642; transition: width 0.4s ease;"></div>
+        </div>
+    </div>
+
+    <!-- SCROLL PROGRESS BAR -->
+    <div id="scroll-progress" style="position: fixed; top: 0; left: 0; height: 3px; background: #f5e642; z-index: 10000; width: 0%; box-shadow: 0 0 10px rgba(245,230,66,0.5);"></div>
+
+    <!-- COOKIE CONSENT BANNER -->
+    <div class="cookie-banner" id="cookieBanner" role="dialog" aria-live="polite">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <i class="bi bi-cookie" style="font-size:1.4rem; color:#f5e642; margin-right:8px;"></i>
+                <span>We use cookies to enhance your experience. By continuing, you agree to our <a href="legal" style="color:#f5e642;">Cookie Policy</a>.</span>
+            </div>
+            <div class="cookie-actions">
+                <button class="cookie-btn-decline" onclick="declineCookies()">Decline</button>
+                <button class="cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOATING ACTION BUTTONS -->
+    <div class="fab-container">
+        <button class="fab fab-totop" id="scrollTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Scroll to top" style="display:none;">
+            <i class="bi bi-chevron-up"></i>
+        </button>
+    </div>
+
+    <!-- CUSTOM CURSOR -->
+    <div class="custom-cursor" id="customCursor"></div>
+    <div class="custom-cursor-dot" id="customCursorDot"></div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar-mudaber" id="navbar">
+        <div class="navbar-inner">
+            <a href="/" class="nav-logo-wrap">
+                <img src="assets/images/android-chrome-192x192.png" alt="MUDABER Logo" class="logo-mark" style="width:40px; height:auto; object-fit:contain;" />
+                <span class="nav-logo-text">MUDABER<span>.</span></span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="ecosystem">Ecosystem</a></li>
+                <li><a href="about">About</a></li>
+                <li><a href="careers" style="color: var(--c-white);">Careers</a></li>
+                <li><a href="contact">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="https://mudaber.art" class="btn-nav-ghost" target="_blank">Sign In</a>
+                <a href="/#ecosystem" class="btn-primary-mudaber">Explore <i class="bi bi-rocket-takeoff"></i></a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <i class="bi bi-list" id="navIcon"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="ecosystem" class="mobile-nav-link">Ecosystem</a>
+        <a href="about" class="mobile-nav-link">About</a>
+        <a href="careers" class="mobile-nav-link">Careers</a>
+        <a href="contact" class="mobile-nav-link">Contact</a>
+        <a href="https://mudaber.art" class="btn-primary-mudaber mt-4" style="font-size: 1.2rem; padding: 1rem 2.5rem;" target="_blank">Sign In <i class="bi bi-box-arrow-in-right"></i></a>
+    </div>
+
+    <!-- HEADER -->
+    <header id="main-content" class="page-header" data-section-id="careers-hero">
+        <h1 class="fade-up" id="cms-careers-hero-title">Join the Movement</h1>
+        <p class="fade-up delay-1" id="cms-careers-hero-sub">Help us build the technological backbone of the future music industry.</p>
+    </header>
+
+    <!-- PERKS & BENEFITS -->
+    <section class="section-pad bg-default" data-section-id="careers-perks">
+        <div class="container-mudaber">
+            <div class="text-center fade-up mb-5">
+                <div class="eyebrow">Why Mudaber?</div>
+                <h2 class="display-section">Life at Mudaber</h2>
+            </div>
+            <div class="perks-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+                <!-- Populated from CMS -->
+                <div class="value-card fade-up delay-1">
+                    <div class="value-icon"><i class="bi bi-laptop"></i></div>
+                    <h3>Remote-First Culture</h3>
+                    <p class="text-muted-custom">Work from anywhere in the world. We care about output, not office hours.</p>
+                </div>
+                <div class="value-card fade-up delay-2">
+                    <div class="value-icon"><i class="bi bi-heart-pulse"></i></div>
+                    <h3>Health &amp; Wellness</h3>
+                    <p class="text-muted-custom">Premium health insurance, mental health support, and gym memberships.</p>
+                </div>
+                <div class="value-card fade-up delay-3">
+                    <div class="value-icon"><i class="bi bi-music-note-beamed"></i></div>
+                    <h3>Music Allowance</h3>
+                    <p class="text-muted-custom">Monthly budget for concerts, festivals, plugins, and gear.</p>
+                </div>
+                <div class="value-card fade-up delay-4">
+                    <div class="value-icon"><i class="bi bi-mortarboard"></i></div>
+                    <h3>Continuous Learning</h3>
+                    <p class="text-muted-custom">Annual budget for courses, conferences, and educational materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPEN POSITIONS -->
+    <section class="section-pad-lg bg-surface" data-section-id="careers-jobs">
+        <div class="container-mudaber" style="max-width: 900px; margin: 0 auto;">
+            <div class="text-center fade-up mb-5">
+                <div class="eyebrow">Hiring Now</div>
+                <h2 class="display-section">Open Roles</h2>
+            </div>
+            <div class="jobs-list">
+                <!-- Jobs populated from CMS via renderDynamicContent -->
+                <div class="job-card fade-up" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); border-radius: 16px; padding: 2rem;">
+                    <div class="job-info">
+                        <h3 style="font-family: var(--ff-display); color: #fff; margin-bottom: 0.5rem;">Senior Full-Stack Engineer</h3>
+                        <div class="job-meta" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                            <span style="background: rgba(245,230,66,0.1); color: #f5e642; padding: 3px 10px; border-radius: 100px; font-size: 0.8rem; font-weight: 600;">Mudaber Tech</span>
+                            <span style="color: var(--c-muted); font-size: 0.85rem;"><i class="bi bi-geo-alt"></i> Remote (EU/UK)</span>
+                        </div>
+                        <p style="color: var(--c-muted); margin-top: 10px; font-size: 0.95rem;">Build the next generation of our royalty processing engine and label dashboards.</p>
+                    </div>
+                    <div class="job-action">
+                        <a href="contact" class="btn-outline-mudaber">Apply Now <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="section-pad bg-default">
+        <div class="container-mudaber text-center fade-up">
+            <div class="eyebrow">Don't See Your Role?</div>
+            <h2 class="display-section mb-4">Build Your Path With Us</h2>
+            <p class="text-muted-custom mx-auto mb-5" style="max-width: 600px;">We're always looking for passionate people. Send us your CV and tell us how you'd contribute to the Mudaber ecosystem.</p>
+            <a href="contact" class="btn-primary-mudaber" style="padding: 1.2rem 3rem; font-size: 1.1rem;">Get in Touch <i class="bi bi-envelope"></i></a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-inner">
+            <div class="row" style="display:flex; flex-wrap:wrap; gap:3rem;">
+                <div style="flex: 2; min-width: 300px;">
+                    <a href="/" class="footer-logo">MUDABER<span>.</span></a>
+                    <p class="footer-desc">The central hub of the world's most advanced independent music ecosystem. Registered in England &amp; Wales (No. 16915064).</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/mudabermusic/" target="_blank" class="social-btn"><i class="bi bi-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCuIaE4S8zu4opdY5oMhZjyg" target="_blank" class="social-btn"><i class="bi bi-youtube"></i></a>
+                        <a href="https://soundcloud.com/mudaber-music" target="_blank" class="social-btn"><i class="bi bi-soundwave"></i></a>
+                        <a href="https://open.spotify.com/user/31fqwpwvwhr5u3szb5yh2yffxwbi" target="_blank" class="social-btn"><i class="bi bi-spotify"></i></a>
+                    </div>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <div class="footer-col-title">Ecosystem</div>
+                    <ul class="footer-links">
+                        <li><a href="https://mudaber.art" target="_blank">Mudaber Art</a></li>
+                        <li><a href="https://mudaberghost.com" target="_blank">Mudaber Ghost</a></li>
+                        <li><a href="https://mudaber.tech" target="_blank">Mudaber Tech</a></li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <div class="footer-col-title">Company</div>
+                    <ul class="footer-links">
+                        <li><a href="about">About Us</a></li>
+                        <li><a href="careers">Careers</a></li>
+                        <li><a href="contact">Contact Us</a></li>
+                        <li><a href="press">Press</a></li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 150px;">
+                    <div class="footer-col-title">Legal</div>
+                    <ul class="footer-links">
+                        <li><a href="legal">Privacy Policy</a></li>
+                        <li><a href="legal">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="fade-up" style="border-top: 1px solid var(--c-border); padding-top: 3rem; margin-top: 1rem; text-align: center;">
+                <h4 style="font-family: var(--ff-display); color: #fff; margin-bottom: 0.5rem;">Stay in the Loop</h4>
+                <p class="text-muted-custom" style="font-size: 0.9rem; margin-bottom: 1.5rem;">Get the latest news, artist stories, and platform updates delivered to your inbox.</p>
+                <form class="newsletter-wrap" onsubmit="handleNewsletter(event)">
+                    <input type="email" class="newsletter-input" placeholder="support@mudaber.art" required aria-label="Email address" />
+                    <button type="submit" class="newsletter-btn">Subscribe <i class="bi bi-send-fill"></i></button>
+                </form>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mudaber Ltd. All Rights Reserved.</p>
+                <p>112 Loughborough House, 2 Honour Gardens, London RM8 2GJ</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    <script>
+        // ===== GLOBAL CMS LOADER =====
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const response = await fetch('content.json?v=' + new Date().getTime());
+                if (!response.ok) return;
+                const globalData = await response.json();
+                if (window.applyTheme) window.applyTheme(globalData.theme);
+                if (window.applyBackgrounds) window.applyBackgrounds(globalData.backgrounds, 'careers');
+                if (window.applySections) window.applySections('careers', globalData);
+                if (window.renderDynamicContent) window.renderDynamicContent('careers', globalData.careers);
+                const cmsData = globalData.careers;
+                if (!cmsData) return;
+                const updateEl = (id, html) => { if(html && document.getElementById(id)) document.getElementById(id).innerHTML = html; };
+                updateEl('cms-careers-hero-title', cmsData.heroTitle);
+                updateEl('cms-careers-hero-sub', cmsData.heroSub);
+            } catch(e) { console.warn("CMS Load Error:", e); }
+        });
+
+        // Cookie Consent
+        (function() {
+            if (!localStorage.getItem('mudaber_cookies_accepted')) {
+                setTimeout(() => {
+                    const banner = document.getElementById('cookieBanner');
+                    if (banner) banner.classList.add('show');
+                }, 2000);
+            }
+        })();
+        function acceptCookies() {
+            localStorage.setItem('mudaber_cookies_accepted', 'true');
+            const b = document.getElementById('cookieBanner');
+            if (b) { b.style.bottom = '-200px'; setTimeout(() => b.remove(), 600); }
+        }
+        function declineCookies() {
+            localStorage.setItem('mudaber_cookies_accepted', 'declined');
+            const b = document.getElementById('cookieBanner');
+            if (b) { b.style.bottom = '-200px'; setTimeout(() => b.remove(), 600); }
+        }
+        // Newsletter
+        function handleNewsletter(e) {
+            e.preventDefault();
+            alert('Thank you for subscribing!');
+        }
+        // Scroll to Top visibility
+        window.addEventListener('scroll', () => {
+            const btn = document.getElementById('scrollTopBtn');
+            if (btn) btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+            const progress = document.getElementById('scroll-progress');
+            if (progress) {
+                const pct = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+                progress.style.width = pct + '%';
+            }
+        });
+    </script>
+
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="particles-init.js"></script>
+</body>
+</html>

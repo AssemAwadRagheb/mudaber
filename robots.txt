@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+Disallow: /save_cms.php
+Disallow: /content.json
+
+# Sitemap
+Sitemap: https://mudaber.com/sitemap.xml
+
+# Crawl-delay hint for well-behaved bots
+Crawl-delay: 2

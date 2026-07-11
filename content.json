@@ -1,0 +1,437 @@
+{
+  "index": {
+    "heroTitle": "Amplify Your Sound.<br/><span class=\"line2\">Dominate The Globe.</span>",
+    "heroSub": "Mudaber Group is an independent music and technology ecosystem. <strong style=\"color:#fff;\">Mudaber Art</strong> gets your music onto every major platform, <strong style=\"color:#fff;\">Mudaber Ghost</strong> delivers world-class production on demand, and <strong style=\"color:#fff;\">Mudaber Tech</strong> builds the infrastructure that scales it all â€” one hub, from your first track to the global stage.",
+    "ecoArtDesc": "The ultimate platform for global music distribution and publishing. Release your tracks on 200+ platforms including Spotify, Apple Music, YouTube Music, SoundCloud, and Beatport, keep 100% of your rights, and track your royalties in real-time.",
+    "ctaDesc": "Join independent artists who trust Mudaber to distribute their music, protect their rights, and grow their careers globally.",
+    "featuredTitle": "Mudaber Exclusive",
+    "featuredArtist": "Mudaber Music",
+    "featuredGenre": "TECHNO",
+    "featuredCover": "assets/artist/WhatsApp Image 2026-07-03 at 12.54.41 PM.jpeg",
+    "featuredAudio": "assets/audio/featured.mp3",
+    "statPlatforms": "200",
+    "artists": [
+      {
+        "name": "KRYPT0",
+        "genre": "Hard Techno Â· Mudaber Art",
+        "image": "assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (1).jpeg"
+      },
+      {
+        "name": "SHADOW X",
+        "genre": "Ghost Production Â· Mudaber Ghost",
+        "image": "assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (5).jpeg"
+      },
+      {
+        "name": "KOSM1C",
+        "genre": "Electronic Â· Mudaber Art",
+        "image": "assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (7).jpeg"
+      },
+      {
+        "name": "NOVA DJ",
+        "genre": "Techno Â· Live Sets",
+        "image": "assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (8).jpeg"
+      },
+      {
+        "name": "LYRA",
+        "genre": "Melodic Techno Â· JAMAX",
+        "image": "assets/artist/WhatsApp Image 2026-07-03 at 1.01.19 PM (9).jpeg"
+      },
+      {
+        "name": "PULSE",
+        "genre": "Electronic Â· Mudaber Art",
+        "image": "assets/artist/WhatsApp Image 2026-07-03 at 12.54.41 PM (2).jpeg"
+      },
+      {
+        "name": "PHANTOM",
+        "genre": "Ghost Production Â· Mudaber Ghost",
+        "image": "assets/artist/WhatsApp Image 2026-07-03 at 12.54.41 PM.jpeg"
+      },
+      {
+        "name": "VECTOR",
+        "genre": "Hard Techno Â· Live DJ",
+        "image": "assets/artist/WhatsApp Image 2026-07-03 at 12.54.43 PM.jpeg"
+      }
+    ],
+    "workflow": [
+      {
+        "desc": "Drop your tracks into our secure portal. We handle the formatting and metadata encoding automatically.",
+        "title": "1. Upload"
+      },
+      {
+        "desc": "Your music hits Spotify, Apple Music, Beatport, and 200+ global platforms simultaneously.",
+        "title": "2. Distribute"
+      },
+      {
+        "desc": "Track streams in real-time and collect 100% of your royalties with zero hidden fees.",
+        "title": "3. Monetize"
+      }
+    ],
+    "faq": [
+      {
+        "a": "Yes. At Mudaber Art, you retain 100% ownership of your master recordings and publishing rights.",
+        "q": "Do I keep 100% of my rights?"
+      },
+      {
+        "a": "Royalties are calculated monthly and can be withdrawn directly to your bank account, PayPal, or crypto wallet.",
+        "q": "How do I get paid?"
+      },
+      {
+        "a": "Absolutely. Once you purchase a track from Mudaber Ghost, you own the exclusive rights and 100% of the royalties.",
+        "q": "Are ghost productions exclusive?"
+      },
+      {
+        "a": "Yes, our team handles catalog migrations to ensure you don't lose your stream counts or playlist placements.",
+        "q": "Can I switch from another distributor?"
+      }
+    ],
+    "testimonials": [
+      {
+        "role": "Independent Producer",
+        "name": "ALEX V.",
+        "quote": "Mudaber changed everything. I used to worry about distribution and splits; now I just make music and they handle the rest."
+      },
+      {
+        "role": "Touring DJ",
+        "name": "DJ KRYPT",
+        "quote": "The ghost production quality is insane. I needed a festival banger quickly, and Mudaber Ghost delivered a track that hit 1M streams."
+      },
+      {
+        "role": "Label Manager",
+        "name": "SARAH M.",
+        "quote": "Their tech infrastructure is the backbone of our label. Real-time analytics and instant payouts make running a label effortless."
+      }
+    ]
+  },
+  "about": {
+    "heroTitle": "Our Story",
+    "heroSub": "Empowering the independent music scene since 2015. We are Mudaber.",
+    "visionTitle": "Music without limits.",
+    "visionDesc": "<p class=\"text-muted-custom\" style=\"font-size: 1.1rem; margin-bottom: 1.5rem;\">Mudaber was founded on a simple principle: artists should have the power of a major label without giving up their rights or creative control.</p><p class=\"text-muted-custom\" style=\"font-size: 1.1rem; margin-bottom: 1.5rem;\">Started in London by Jamal Belal, we have grown into a massive ecosystem encompassing distribution (Mudaber Art), ghost production (Mudaber Ghost), and technological innovations (Mudaber Tech). We are not just participating in the music industry; we are rebuilding its infrastructure.</p>",
+    "coreValues": [
+      {
+        "icon": "bi-shield-check",
+        "title": "Artist First",
+        "desc": "We never take your rights. You keep 100% of your masters and publishing."
+      },
+      {
+        "icon": "bi-lightning-charge",
+        "title": "Innovation",
+        "desc": "We build the tech that major labels use, and give it to independents."
+      },
+      {
+        "icon": "bi-globe",
+        "title": "Global Reach",
+        "desc": "Music has no borders. We distribute to over 200 platforms worldwide."
+      },
+      {
+        "icon": "bi-incognito",
+        "title": "Discretion",
+        "desc": "Our ghost production services are strictly confidential and exclusive."
+      }
+    ],
+    "timeline": [
+      {
+        "title": "The Beginning",
+        "desc": "Mudaber was founded in London with a mission to decentralize music distribution.",
+        "year": "2015"
+      },
+      {
+        "title": "Mudaber Ghost",
+        "desc": "Launched our premium ghost production marketplace, connecting top-tier producers with DJs.",
+        "year": "2018"
+      },
+      {
+        "title": "Global Expansion",
+        "desc": "Opened offices in Berlin and Dubai, expanding our distribution network to 200+ platforms.",
+        "year": "2021"
+      },
+      {
+        "title": "The Tech Revolution",
+        "desc": "Introduced AI-driven analytics and smart-contract royalty splits via Mudaber Tech.",
+        "year": "2024"
+      }
+    ]
+  },
+  "ecosystem": {
+    "heroTitle": "The Platforms",
+    "heroSub": "Three pillars designed for modern creators.",
+    "platforms": [
+      {
+        "id": "art",
+        "features": "200+ Platforms, Real-time Analytics, 100% Rights, YouTube Content ID",
+        "color": "#f5e642",
+        "icon": "bi-soundwave",
+        "desc": "The ultimate distribution and publishing hub. Release globally, track analytics instantly, and keep 100% of your rights.",
+        "title": "Mudaber Art"
+      },
+      {
+        "id": "ghost",
+        "features": "100% Exclusive, Stems Included, Festival Ready, Instant Download",
+        "color": "#00e5ff",
+        "icon": "bi-incognito",
+        "desc": "Premium, exclusive ghost production. Buy industry-ready tracks, get full commercial rights, and release them under your name.",
+        "title": "Mudaber Ghost"
+      },
+      {
+        "id": "tech",
+        "features": "AI Mastering, Smart Splits, Custom Label Dashboards, API Access",
+        "color": "#7FD957",
+        "icon": "bi-cpu",
+        "desc": "The technological backbone. We provide AI mixing, smart-contract royalty splits, and custom infrastructure for labels.",
+        "title": "Mudaber Tech"
+      }
+    ]
+  },
+  "careers": {
+    "heroTitle": "Join the Movement",
+    "heroSub": "Help us build the technological backbone of the future music industry.",
+    "perks": [
+      {
+        "icon": "bi-laptop",
+        "title": "Remote First",
+        "desc": "Work from anywhere in the world. We care about output, not office hours."
+      },
+      {
+        "icon": "bi-heart-pulse",
+        "title": "Health & Wellness",
+        "desc": "Premium health insurance, mental health support, and gym memberships."
+      },
+      {
+        "icon": "bi-music-note-beamed",
+        "title": "Music Allowance",
+        "desc": "Monthly budget for concerts, festivals, plugins, and gear."
+      },
+      {
+        "icon": "bi-mortarboard",
+        "title": "Continuous Learning",
+        "desc": "Annual budget for courses, conferences, and educational materials."
+      }
+    ],
+    "jobs": [
+      {
+        "dept": "Mudaber Tech",
+        "title": "Senior Full-Stack Engineer",
+        "desc": "Build the next generation of our royalty processing engine and label dashboards.",
+        "type": "Remote (EU/UK)"
+      },
+      {
+        "dept": "Mudaber Art",
+        "title": "A&R Manager",
+        "desc": "Scout and onboard top independent electronic music talent to our distribution platform.",
+        "type": "London, UK / Hybrid"
+      },
+      {
+        "dept": "Mudaber Ghost",
+        "title": "Ghost Producer (Techno/House)",
+        "desc": "Produce high-quality, exclusive tracks for our premium ghost production catalog.",
+        "type": "Remote"
+      }
+    ]
+  },
+  "contact": {
+    "heroTitle": "Get in Touch",
+    "heroSub": "Whether you're an artist ready to distribute or a label looking for tech solutions, our team is ready to help.",
+    "infoTitle": "Global Headquarters",
+    "infoDesc": "Mudaber operates globally with a remote-first team, but our official headquarters are located in London, UK.",
+    "email": "contact@mudaber.com"
+  },
+  "sections": {
+    "about": [
+      {
+        "label": "Hero Section",
+        "id": "about-hero",
+        "visible": true,
+        "order": 0
+      },
+      {
+        "label": "Vision & Story",
+        "id": "about-vision",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "label": "Core Values",
+        "id": "about-values",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "label": "Timeline",
+        "id": "about-timeline",
+        "visible": true,
+        "order": 3
+      }
+    ],
+    "careers": [
+      {
+        "label": "Hero Section",
+        "id": "careers-hero",
+        "visible": true,
+        "order": 0
+      },
+      {
+        "label": "Perks & Benefits",
+        "id": "careers-perks",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "label": "Open Positions",
+        "id": "careers-jobs",
+        "visible": true,
+        "order": 2
+      }
+    ],
+    "contact": [
+      {
+        "label": "Hero Section",
+        "id": "contact-hero",
+        "visible": true,
+        "order": 0
+      },
+      {
+        "label": "Contact Form",
+        "id": "contact-form",
+        "visible": true,
+        "order": 1
+      }
+    ],
+    "ecosystem": [
+      {
+        "label": "Hero Section",
+        "id": "eco-hero",
+        "visible": true,
+        "order": 0
+      },
+      {
+        "label": "Mudaber Art",
+        "id": "eco-art",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "label": "Mudaber Ghost",
+        "id": "eco-ghost",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "label": "Mudaber Tech",
+        "id": "eco-tech",
+        "visible": true,
+        "order": 3
+      }
+    ],
+    "index": [
+      {
+        "label": "Hero (Main)",
+        "id": "hero",
+        "visible": true,
+        "order": 0
+      },
+      {
+        "label": "Ecosystem Showcase",
+        "id": "ecosystem",
+        "visible": true,
+        "order": 1
+      },
+      {
+        "label": "How It Works",
+        "id": "workflow",
+        "visible": true,
+        "order": 2
+      },
+      {
+        "label": "Featured Release",
+        "id": "featured-release",
+        "visible": true,
+        "order": 3
+      },
+      {
+        "label": "News & Press",
+        "id": "news",
+        "visible": true,
+        "order": 4
+      },
+      {
+        "label": "Global Stats",
+        "id": "global",
+        "visible": true,
+        "order": 5
+      },
+      {
+        "label": "Testimonials",
+        "id": "testimonials",
+        "visible": true,
+        "order": 6
+      },
+      {
+        "label": "FAQ",
+        "id": "faq",
+        "visible": true,
+        "order": 7
+      }
+    ]
+  },
+  "theme": {
+    "bgColor": "#030305",
+    "surfaceColor": "#111111",
+    "accentColor": "#f5e642",
+    "textColor": "#ffffff",
+    "mutedColor": "#888888",
+    "borderColor": "rgba(255,255,255,0.1)",
+    "headerBg": "rgba(3,3,5,0.95)",
+    "footerBg": "#060608",
+    "btnColor": "#f5e642",
+    "btnText": "#000000",
+    "linkColor": "#f5e642",
+    "displayFont": "Space Grotesk",
+    "bodyFont": "Inter",
+    "baseFontSize": "16px",
+    "lineHeight": "1.6"
+  },
+  "backgrounds": {
+    "pages": {
+      "index": {
+        "type": "color",
+        "value": "#030305",
+        "overlay": 0
+      },
+      "about": {
+        "type": "color",
+        "value": "#030305",
+        "overlay": 0
+      },
+      "ecosystem": {
+        "type": "color",
+        "value": "#030305",
+        "overlay": 0
+      },
+      "careers": {
+        "type": "color",
+        "value": "#030305",
+        "overlay": 0
+      },
+      "contact": {
+        "type": "color",
+        "value": "#030305",
+        "overlay": 0
+      }
+    },
+    "sections": {}
+  },
+  "tracks": [
+    {
+      "id": "track-1",
+      "title": "Mudaber Exclusive",
+      "artist": "Mudaber Music",
+      "genre": "TECHNO",
+      "year": "2024",
+      "audioUrl": "assets/audio/featured.mp3",
+      "coverUrl": "assets/artist/WhatsApp Image 2026-07-03 at 12.54.41 PM.jpeg",
+      "spotifyUrl": "",
+      "appleUrl": "",
+      "featured": true
+    }
+  ]
+}

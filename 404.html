@@ -1,0 +1,225 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#030305" />
+    <meta name="color-scheme" content="dark" />
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mudaber.com/404">
+    <meta property="og:title" content="404 - Page Not Found | MUDABER">
+    <meta property="og:description" content="The page you are looking for does not exist. Return to the Mudaber ecosystem.">
+    <meta property="og:image" content="https://i.ibb.co/n8BHs9Yj/download.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mudaber.com/404">
+    <meta property="twitter:title" content="404 - Page Not Found | MUDABER">
+    <meta property="twitter:description" content="The page you are looking for does not exist. Return to the Mudaber ecosystem.">
+    <meta property="twitter:image" content="https://i.ibb.co/n8BHs9Yj/download.png">
+    <link rel="canonical" href="https://mudaber.com/" />
+    <title>404 — Page Not Found | MUDABER</title>
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" />
+    
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/apple-touch-icon.png">
+    <link rel="manifest" href="manifest.json" />
+    
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        :root {
+            --c-bg: #030305;
+            --c-accent: #f5e642;
+            --c-muted: #a0a0b0;
+            --ff-display: 'Space Grotesk', sans-serif;
+            --ff-body: 'Inter', sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body {
+            min-height: 100vh;
+            background: var(--c-bg);
+            color: #fff;
+            font-family: var(--ff-body);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            overflow: hidden;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(ellipse at center, rgba(245,230,66,0.07) 0%, transparent 65%);
+            animation: pulse-bg 8s ease-in-out infinite alternate;
+            z-index: -1;
+        }
+        @keyframes pulse-bg {
+            0% { transform: scale(1); opacity: 0.5; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+        .error-code {
+            font-family: var(--ff-display);
+            font-size: clamp(8rem, 20vw, 15rem);
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 0;
+            background: linear-gradient(135deg, #fff 0%, #a0a0b0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+        .error-code::after {
+            content: '.';
+            color: var(--c-accent);
+            -webkit-text-fill-color: var(--c-accent);
+        }
+        .error-message {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-family: var(--ff-display);
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .error-desc {
+            color: var(--c-muted);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+        }
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--c-accent);
+            color: #000;
+            text-decoration: none;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-family: var(--ff-display);
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .btn-home:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(245,230,66,0.2);
+            background: #fff;
+        }
+        .btn-home i {
+            font-size: 1.2rem;
+            transition: transform 0.3s;
+        }
+        .btn-home:hover i {
+            transform: translateX(-4px);
+        }
+        .logo-mark {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            text-decoration: none;
+            color: #fff;
+            font-family: var(--ff-display);
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo-mark span { color: var(--c-accent); }
+        .logo-mark img { width: 30px; }
+        
+        .floating-elements {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+        .float-el {
+            position: absolute;
+            background: rgba(255,255,255,0.03);
+            border-radius: 50%;
+            animation: float-up linear infinite;
+        }
+        @keyframes float-up {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        @media (max-width: 768px) {
+            .logo-mark { top: 1.5rem; left: 1.5rem; }
+            .btn-home { padding: 0.8rem 1.5rem; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div id="tsparticles" style="position: fixed; inset: 0; z-index: -1; pointer-events: none;"></div>
+
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+    <noscript><div class="noscript-banner">&#9888; JavaScript is required for the full Mudaber experience.</div></noscript>
+
+    <a href="/" class="logo-mark">
+        <img src="assets/images/android-chrome-192x192.png" alt="MUDABER Logo" />
+        MUDABER<span>.</span>
+    </a>
+
+    <div class="floating-elements" id="particles"></div>
+
+    <main id="main-content">
+        <div class="error-code">404</div>
+        <h1 class="error-message">Lost in the Ecosystem</h1>
+        <p class="error-desc">The page you're looking for has been moved, deleted, or never existed in the first place.</p>
+        <a href="/" class="btn-home">
+            <i class="bi bi-arrow-left"></i> Return to Homepage
+        </a>
+    </main>
+
+    <script>
+        // Generate floating particles
+        const container = document.getElementById('particles');
+        for(let i=0; i<15; i++) {
+            const el = document.createElement('div');
+            el.className = 'float-el';
+            const size = Math.random() * 100 + 20;
+            el.style.width = size + 'px';
+            el.style.height = size + 'px';
+            el.style.left = Math.random() * 100 + 'vw';
+            el.style.animationDuration = (Math.random() * 15 + 10) + 's';
+            el.style.animationDelay = (Math.random() * 10) + 's';
+            container.appendChild(el);
+        }
+    </script>
+    
+    <!-- Command Palette HTML to satisfy script.js if it fires -->
+    <div id="cmd-palette" style="display:none;"></div>
+    <script src="script.js"></script>
+    <!-- tsParticles Global -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-engine@2.12.0/tsparticles.engine.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-basic@2.12.0/tsparticles.basic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-interaction-particles-links@2.12.0/tsparticles.interaction.particles.links.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-move-base@2.12.0/tsparticles.move.base.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-shape-circle@2.12.0/tsparticles.shape.circle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-color@2.12.0/tsparticles.updater.color.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-opacity@2.12.0/tsparticles.updater.opacity.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-updater-size@2.12.0/tsparticles.updater.size.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="particles-init.js"></script>
+</body>
+</html>
